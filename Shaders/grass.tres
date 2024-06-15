@@ -73,7 +73,6 @@ operator = 2
 [sub_resource type="VisualShaderNodeVectorFunc" id="VisualShaderNodeVectorFunc_dd646"]
 
 [sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_g1ueh"]
-operator = 1
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_03qvl"]
 input_name = "model_matrix"

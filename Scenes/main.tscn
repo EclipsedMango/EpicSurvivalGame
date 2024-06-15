@@ -87,3 +87,23 @@ shape = SubResource("BoxShape3D_s3gtb")
 
 [node name="Rock" parent="Blocks" instance=ExtResource("4_6j0fb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.56269, 6.43175)
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 3.39732, -0.662387)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blocks/StaticBody3D3"]
+mesh = SubResource("BoxMesh_2cujy")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blocks/StaticBody3D3"]
+shape = SubResource("BoxShape3D_s3gtb")
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69276, 7.31021, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blocks/StaticBody3D4"]
+mesh = SubResource("BoxMesh_2cujy")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blocks/StaticBody3D4"]
+shape = SubResource("BoxShape3D_s3gtb")
