@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbuymm13kjypt"]
+
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_btcab"]
+[ext_resource type="Script" path="res://Scripts/PlayerCam.gd" id="2_m88ak"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vo23"]
+radius = 0.25
+height = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_btcab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_3vo23")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+fov = 90.0
+script = ExtResource("2_m88ak")
+
+[node name="Reach" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
+[node name="PlayerHealth" type="Label" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -34.0
+offset_right = 287.0
+grow_vertical = 0
+text = "health: 10"

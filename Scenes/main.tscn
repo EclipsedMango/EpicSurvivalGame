@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dbkvn3mh5ff31"]
+
+[ext_resource type="PackedScene" uid="uid://wygpiaun5mxw" path="res://Scenes/terrain_test.tscn" id="1_6r6n0"]
+[ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
+[ext_resource type="PackedScene" uid="uid://brq1rqhw4t21k" path="res://Scenes/rock.tscn" id="4_6j0fb"]
+[ext_resource type="Script" path="res://Scripts/FPS.gd" id="5_ro4ot"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qq1ji"]
+sky_top_color = Color(0.2, 0.376471, 0.513726, 1)
+sky_horizon_color = Color(0.541176, 0.74902, 0.858824, 1)
+sky_curve = 0.113679
+ground_bottom_color = Color(0.2, 0.376471, 0.513726, 1)
+ground_horizon_color = Color(0.541176, 0.74902, 0.858824, 1)
+ground_curve = 0.0746429
+
+[sub_resource type="Sky" id="Sky_5ed8c"]
+sky_material = SubResource("ProceduralSkyMaterial_qq1ji")
+
+[sub_resource type="Environment" id="Environment_5b3qo"]
+background_mode = 2
+background_color = Color(0, 0.639216, 0.623529, 1)
+sky = SubResource("Sky_5ed8c")
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ambient_light_energy = 0.5
+ssao_enabled = true
+ssao_radius = 12.36
+ssao_intensity = 3.11
+ssao_power = 1.66435
+ssao_detail = 1.14
+ssao_horizon = 0.12
+fog_enabled = true
+fog_light_energy = 2.0
+fog_density = 0.001
+fog_sky_affect = 0.094
+volumetric_fog_density = 0.031
+volumetric_fog_albedo = Color(0.541176, 0.74902, 0.858824, 1)
+volumetric_fog_emission = Color(0.67451, 0.827451, 0.909804, 1)
+volumetric_fog_detail_spread = 5.2233
+volumetric_fog_sky_affect = 0.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ah7ol"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 15.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 1.25
+dof_blur_amount = 0.02
+
+[sub_resource type="BoxMesh" id="BoxMesh_2cujy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s3gtb"]
+
+[node name="World" type="Node3D"]
+
+[node name="TerrainTest" parent="." instance=ExtResource("1_6r6n0")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.000370622, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5b3qo")
+camera_attributes = SubResource("CameraAttributesPractical_ah7ol")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.554016, 0.832506, 0, -0.832506, -0.554016, 0, 20.282, -68.5258)
+shadow_enabled = true
+
+[node name="PlayerRelated" type="Node" parent="."]
+
+[node name="Player" parent="PlayerRelated" instance=ExtResource("2_voc7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.92818, 0)
+
+[node name="FPS" type="Label" parent="PlayerRelated"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_ro4ot")
+
+[node name="Blocks" type="Node" parent="."]
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.40181, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Blocks/StaticBody3D2"]
+mesh = SubResource("BoxMesh_2cujy")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blocks/StaticBody3D2"]
+shape = SubResource("BoxShape3D_s3gtb")
+
+[node name="Rock" parent="Blocks" instance=ExtResource("4_6j0fb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.56269, 6.43175)
