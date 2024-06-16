@@ -42,8 +42,9 @@ volumetric_fog_sky_affect = 0.0
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ah7ol"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
+dof_blur_far_transition = 50.0
 dof_blur_near_enabled = true
-dof_blur_near_distance = 1.25
+dof_blur_near_distance = 2.15
 dof_blur_amount = 0.02
 
 [sub_resource type="BoxMesh" id="BoxMesh_2cujy"]

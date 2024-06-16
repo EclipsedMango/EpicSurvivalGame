@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbuymm13kjypt"]
+[gd_scene load_steps=5 format=3 uid="uid://bbuymm13kjypt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_btcab"]
 [ext_resource type="Script" path="res://Scripts/PlayerCam.gd" id="2_m88ak"]
+[ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="3_gwn0o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vo23"]
 radius = 0.25
@@ -33,3 +34,72 @@ offset_top = -34.0
 offset_right = 287.0
 grow_vertical = 0
 text = "health: 10"
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_gwn0o")
+
+[node name="ButtonMenu" type="CenterContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/ButtonMenu"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/ButtonMenu/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/ButtonMenu/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Resume"
+
+[node name="Options" type="Button" parent="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Exit to Menu" type="Button" parent="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit to Menu"
+
+[node name="Title" type="CenterContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 30.0
+offset_bottom = 199.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu/Title"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu/Title/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="PauseMenu/Title/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Epic Survival Game"
+
+[connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
+[connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Exit to Menu" to="PauseMenu" method="_on_exit_to_menu_pressed"]
