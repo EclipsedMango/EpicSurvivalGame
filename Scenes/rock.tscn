@@ -1,19 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://brq1rqhw4t21k"]
+[gd_scene load_steps=6 format=3 uid="uid://brq1rqhw4t21k"]
 
 [ext_resource type="Script" path="res://Scripts/Rock.gd" id="1_s6iwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3j46"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2cujy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s3gtb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51hc3"]
-size = Vector3(1.04138, 1.01855, 1.0528)
+size = Vector3(1.05438, 1.01855, 1.08792)
 
 [node name="Rock" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.831861, 8.36222)
 script = ExtResource("1_s6iwx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_h3j46")
 mesh = SubResource("BoxMesh_2cujy")
 skeleton = NodePath("../../..")
 
@@ -23,7 +26,5 @@ shape = SubResource("BoxShape3D_s3gtb")
 [node name="DamageZone" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DamageZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00994873, 0.00927734, 0.0215759)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00344801, 0.00927734, 0.00401402)
 shape = SubResource("BoxShape3D_51hc3")
-
-[connection signal="body_entered" from="DamageZone" to="." method="_on_damage_zone_body_entered"]

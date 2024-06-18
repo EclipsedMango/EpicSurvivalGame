@@ -10,4 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !is_instance_valid(player):
+		player = $"/root/World/PlayerRelated/Player"
+	
 	global_position = player.global_position

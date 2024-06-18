@@ -43,7 +43,6 @@ volumetric_fog_sky_affect = 0.0
 dof_blur_far_enabled = true
 dof_blur_far_distance = 15.0
 dof_blur_far_transition = 50.0
-dof_blur_near_enabled = true
 dof_blur_near_distance = 2.15
 dof_blur_amount = 0.02
 
@@ -67,7 +66,6 @@ shadow_enabled = true
 [node name="PlayerRelated" type="Node" parent="."]
 
 [node name="Player" parent="PlayerRelated" instance=ExtResource("2_voc7m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.92818, 0)
 
 [node name="FPS" type="Label" parent="PlayerRelated"]
 offset_right = 40.0
