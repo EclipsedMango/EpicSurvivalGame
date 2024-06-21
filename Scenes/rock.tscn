@@ -1,15 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://brq1rqhw4t21k"]
+[gd_scene load_steps=5 format=3 uid="uid://brq1rqhw4t21k"]
 
 [ext_resource type="Script" path="res://Scripts/Rock.gd" id="1_s6iwx"]
+[ext_resource type="ArrayMesh" uid="uid://j78p2ctiwi7b" path="res://Assets/Models/Rock1.res" id="2_2onsw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3j46"]
+albedo_color = Color(0.47788, 0.47788, 0.47788, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_2cujy"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_s3gtb"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_51hc3"]
-size = Vector3(1.05438, 1.01855, 1.08792)
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d5pkx"]
+points = PackedVector3Array(-0.124503, -1.46944, -0.0255355, 0.0176804, 0.238102, 1.55121, 0.0645334, 0.187035, 1.52766, 0.162018, 1.39218, -0.892484, -1.35413, -0.000949979, 0.210591, 1.34143, -0.662691, -0.308849, -0.545966, -0.188577, -1.29219, -0.0295933, 1.46734, 0.77919, -0.362688, -0.951795, 1.3049, 1.00704, 0.0459846, 0.917427, 0.966407, 0.900018, -0.594964, -1.06952, 0.991581, 0.210516, -1.31583, -0.762701, -0.0262956, 1.158, -1.18844, -0.168538, 0.301227, -0.898793, -0.970959, 0.630863, 0.753393, -1.01568, -0.637897, 1.02857, -0.726068, -0.0296861, 1.04503, 1.30503, -1.07556, -0.380918, -0.73915, 0.351002, -1.52333, 0.30643, 1.00756, -0.236631, 0.917844, -0.317088, 0.572997, -1.31913, 0.627731, 0.609142, 1.14888, -0.832774, 1.22724, 0.494078, -0.872862, -0.703694, 0.912695, -0.642035, -1.31997, 0.257261, 1.35857, -0.336028, -0.457994, 0.307154, 1.54081, -0.365314, 0.207178, 1.41942, 0.637121, 1.29298, -0.803656, 0.210444, 0.302305, -0.997034, -0.927125, -0.8736, -1.12618, -0.0241049)
 
 [node name="Rock" type="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.831861, 8.36222)
@@ -17,14 +15,14 @@ script = ExtResource("1_s6iwx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 material_override = SubResource("StandardMaterial3D_h3j46")
-mesh = SubResource("BoxMesh_2cujy")
+mesh = ExtResource("2_2onsw")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_s3gtb")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_d5pkx")
 
 [node name="DamageZone" type="Area3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DamageZone"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00344801, 0.00927734, 0.00401402)
-shape = SubResource("BoxShape3D_51hc3")
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="DamageZone"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_d5pkx")

@@ -103,7 +103,7 @@ func _physics_process(delta) -> void:
 		var result: Dictionary = space_state.intersect_ray(query)
 		
 		if result.has("collider") && result.collider.has_method("damage"):
-			result.collider.damage()
+			result.collider.damage(self, 1.0)
 
 	# Player Death.
 	if health <= 0:
@@ -127,11 +127,11 @@ func _input(event: InputEvent) -> void:
 		head.rotation.x = clampf(head.rotation.x - (event.relative.y * MOUSE_SENSITIVITY), -LOOK_LIMIT, LOOK_LIMIT)
 		velocity = velocity.rotated(Vector3.UP, -event.relative.x * MOUSE_SENSITIVITY)
 
-func damage_player() -> void:
+func damage_player(damager: Variant, damage_done: float) -> void:
 	if invulnerable:
 		return
 	
-	health -= 1.0
+	health -= damage_done
 	invulnerable = true
 	
 	get_tree().create_timer(INVULNERABLE_TIMER).timeout.connect(func():
