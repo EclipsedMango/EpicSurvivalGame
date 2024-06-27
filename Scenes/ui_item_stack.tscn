@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cccy3p17tx25c"]
+
+[ext_resource type="Texture2D" uid="uid://der152ylpctsg" path="res://icon.svg" id="1_0eoka"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ie2xh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dbr3"]
+bg_color = Color(1, 1, 1, 0.34902)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plqoo"]
+bg_color = Color(0, 0, 0, 0.427451)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3smpp"]
+
+[node name="hallo" type="MarginContainer"]
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_0eoka")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ItemCount" type="Label" parent="."]
+layout_mode = 2
+text = "Hallo"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ie2xh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7dbr3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_plqoo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3smpp")

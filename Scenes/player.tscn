@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbuymm13kjypt"]
+[gd_scene load_steps=7 format=3 uid="uid://bbuymm13kjypt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_btcab"]
 [ext_resource type="Script" path="res://Scripts/PlayerCam.gd" id="2_m88ak"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="3_gwn0o"]
 [ext_resource type="Script" path="res://Scripts/RespawnMenu.gd" id="4_a400j"]
+[ext_resource type="PackedScene" uid="uid://bx3enqaqj2bvq" path="res://Scenes/inventory.tscn" id="5_ejf2h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vo23"]
 radius = 0.25
@@ -37,6 +38,7 @@ grow_vertical = 0
 text = "health: 10"
 
 [node name="PauseMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +105,7 @@ theme_override_font_sizes/font_size = 50
 text = "Epic Survival Game"
 
 [node name="RespawnMenu" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,6 +182,8 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "You Died!"
+
+[node name="Inventory" parent="." instance=ExtResource("5_ejf2h")]
 
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Exit to Menu" to="PauseMenu" method="_on_exit_to_menu_pressed"]

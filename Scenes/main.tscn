@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wygpiaun5mxw" path="res://Scenes/terrain_test.tscn" id="1_6r6n0"]
 [ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
 [ext_resource type="PackedScene" uid="uid://brq1rqhw4t21k" path="res://Scenes/rock.tscn" id="4_6j0fb"]
-[ext_resource type="Script" path="res://Scenes/Rockspawner.gd" id="4_ye4sx"]
+[ext_resource type="Script" path="res://Scripts/Rockspawner.gd" id="4_ye4sx"]
 [ext_resource type="Script" path="res://Scripts/FPS.gd" id="5_ro4ot"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qq1ji"]
@@ -28,17 +28,17 @@ ssao_enabled = true
 ssao_radius = 12.36
 ssao_intensity = 3.11
 ssao_power = 1.66435
-ssao_detail = 1.14
+ssao_detail = 1.27
 ssao_horizon = 0.12
-fog_enabled = true
 fog_light_energy = 2.0
 fog_density = 0.001
 fog_sky_affect = 0.094
-volumetric_fog_density = 0.031
-volumetric_fog_albedo = Color(0.541176, 0.74902, 0.858824, 1)
-volumetric_fog_emission = Color(0.67451, 0.827451, 0.909804, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0208
+volumetric_fog_albedo = Color(0.206077, 0.375678, 0.460733, 1)
+volumetric_fog_emission = Color(0.648226, 0.795134, 0.849093, 1)
 volumetric_fog_detail_spread = 5.2233
-volumetric_fog_sky_affect = 0.0
+volumetric_fog_sky_affect = 0.807
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ah7ol"]
 dof_blur_far_enabled = true
@@ -71,6 +71,7 @@ shadow_enabled = true
 [node name="FPS" type="Label" parent="PlayerRelated"]
 offset_right = 40.0
 offset_bottom = 23.0
+horizontal_alignment = 1
 script = ExtResource("5_ro4ot")
 
 [node name="Blocks" type="Node" parent="."]

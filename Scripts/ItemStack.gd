@@ -14,3 +14,11 @@ enum ItemType {
 	Pickaxe,
 	Axe,
 }
+
+static var type_names: Array[String] = [
+	"Rock",
+	"Wood",
+	"Sword",
+	"Pickaxe",
+	"Axe",
+]

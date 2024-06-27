@@ -23,16 +23,18 @@ var player_res: PackedScene = load("res://Scenes/player.tscn")
 @onready var health_label: Label = $PlayerHealth
 @onready var pause_menu: Control = $PauseMenu
 @onready var respawn_menu: Control = $RespawnMenu
+@onready var inventory_menu: Inventory = $Inventory
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	pause_menu.visible = false
 	respawn_menu.visible = false
+	inventory_menu.visible = false
 
 
 func _physics_process(delta) -> void:
-	if pause_menu.visible or respawn_menu.visible:
+	if is_menu_open():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -53,7 +55,7 @@ func _physics_process(delta) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir: Vector2 = Input.get_vector("left", "right", "forward", "backward")
-	if pause_menu.visible or respawn_menu.visible:
+	if is_menu_open():
 		input_dir = Vector2()
 
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -102,27 +104,40 @@ func _physics_process(delta) -> void:
 		query.collide_with_areas = false
 		var result: Dictionary = space_state.intersect_ray(query)
 		
-		if result.has("collider") && result.collider.has_method("damage"):
+		if result.has("collider") && result.collider.has_method("damage") \
+				&& inventory_menu.get_held_item() != null \
+				&& inventory_menu.get_held_item().type == ItemStack.ItemType.Pickaxe:
 			result.collider.damage(self, 1.0)
 
 	# Player Death.
 	if health <= 0:
 		respawn_menu.visible = true
+		pause_menu.visible = false
+		inventory_menu.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Pause Menu.
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") && !inventory_menu.visible && !respawn_menu.visible:
 		pause_menu.visible = !pause_menu.visible
 		if pause_menu.visible:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+	# Inventory Menu.
+	if (Input.is_action_just_pressed("open_inventory") || Input.is_action_just_pressed("pause")) && !pause_menu.visible && !respawn_menu.visible:
+		if inventory_menu.visible:
+			inventory_menu.visible = false
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		elif Input.is_action_just_pressed("open_inventory"):
+			inventory_menu.visible = true
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 	move_and_slide()
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion && !pause_menu.visible && !respawn_menu.visible:
+	if event is InputEventMouseMotion && !is_menu_open():
 		rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		head.rotation.x = clampf(head.rotation.x - (event.relative.y * MOUSE_SENSITIVITY), -LOOK_LIMIT, LOOK_LIMIT)
 		velocity = velocity.rotated(Vector3.UP, -event.relative.x * MOUSE_SENSITIVITY)
@@ -151,7 +166,10 @@ func respawn_player() -> void:
 	get_parent().add_child(new_player)
 
 func is_just_pressed(action: StringName) -> bool:
-	return !pause_menu.visible && !respawn_menu.visible && Input.is_action_just_pressed(action)
+	return !is_menu_open() && Input.is_action_just_pressed(action)
 
 func is_held(action: StringName) -> bool:
-	return !pause_menu.visible && !respawn_menu.visible && Input.is_action_pressed(action)
+	return !is_menu_open() && Input.is_action_pressed(action)
+
+func is_menu_open() -> bool:
+	return pause_menu.visible || respawn_menu.visible || inventory_menu.visible
