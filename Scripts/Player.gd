@@ -30,7 +30,8 @@ func _ready() -> void:
 	
 	pause_menu.visible = false
 	respawn_menu.visible = false
-	inventory_menu.visible = false
+	inventory_menu.visible = true
+	inventory_menu.set_opened(false)
 
 
 func _physics_process(delta) -> void:
@@ -113,7 +114,7 @@ func _physics_process(delta) -> void:
 	if health <= 0:
 		respawn_menu.visible = true
 		pause_menu.visible = false
-		inventory_menu.visible = false
+		inventory_menu.set_opened(false)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Pause Menu.
@@ -126,11 +127,11 @@ func _physics_process(delta) -> void:
 
 	# Inventory Menu.
 	if (Input.is_action_just_pressed("open_inventory") || Input.is_action_just_pressed("pause")) && !pause_menu.visible && !respawn_menu.visible:
-		if inventory_menu.visible:
-			inventory_menu.visible = false
+		if inventory_menu.is_opened():
+			inventory_menu.set_opened(false)
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		elif Input.is_action_just_pressed("open_inventory"):
-			inventory_menu.visible = true
+			inventory_menu.set_opened(true)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	move_and_slide()
@@ -172,4 +173,4 @@ func is_held(action: StringName) -> bool:
 	return !is_menu_open() && Input.is_action_pressed(action)
 
 func is_menu_open() -> bool:
-	return pause_menu.visible || respawn_menu.visible || inventory_menu.visible
+	return pause_menu.visible || respawn_menu.visible || inventory_menu.is_opened()

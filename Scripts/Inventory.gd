@@ -1,9 +1,13 @@
 class_name Inventory
 extends Control 
 
-@onready var grid_container: GridContainer = $Control/GridContainer
-@onready var grid_container_2: GridContainer = $Control/GridContainer2
-@onready var ui_cursor_item: MarginContainer = $Control/CursorItem
+@onready var grid_container: GridContainer = %InventoryGrid
+@onready var grid_container_2: GridContainer = %InventoryHotbarGrid
+@onready var ui_cursor_item: MarginContainer = %CursorItem
+@onready var hotbar: Control = %Hotbar
+@onready var menu: Control = $CenterContainer
+@onready var hotbar_grid: GridContainer = %HotbarGrid
+@onready var highlight: Panel = %Highlight
 
 const inv_size: int = 36
 var items: Array = []
@@ -23,6 +27,10 @@ func _ready() -> void:
 		item_button.pressed.connect(clicked_item.bind(i))
 		
 		_update_ui_item(ui_item, items[i])
+		
+		if i > 26:
+			var hotbar_item = _get_ui_hotbar_item(i)
+			_update_ui_item(hotbar_item, items[i])
 	
 	_update_ui_item(ui_cursor_item, cursor_item)
 
@@ -31,19 +39,28 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("next_item"):
 		selected_slot = (selected_slot + 1) % 9
+		_update_highlighted()
 	
 	if Input.is_action_just_pressed("previous_item"):
 		selected_slot = (selected_slot + 8) % 9
+		_update_highlighted()
 	
 	for i in range(9):
 		if Input.is_action_just_pressed("select_slot_" + str(i + 1)):
 			selected_slot = i
+			_update_highlighted()
+
+func _update_highlighted() -> void:
+	highlight.position.x = 86.375 * selected_slot
 
 func _get_ui_item(index: int) -> Control:
 	if index > 26:
 		return grid_container_2.get_child(index - 27)
 	
 	return grid_container.get_child(index)
+
+func _get_ui_hotbar_item(index: int) -> Control:
+	return hotbar_grid.get_child(index - 27)
 
 func clicked_item(index: int) -> void:
 	var temp = cursor_item
@@ -54,6 +71,10 @@ func clicked_item(index: int) -> void:
 	
 	_update_ui_item(ui_item, items[index])
 	_update_ui_item(ui_cursor_item, cursor_item)
+	
+	if index > 26:
+		var hotbar_item = _get_ui_hotbar_item(index)
+		_update_ui_item(hotbar_item, items[index])
 
 func _update_ui_item(ui_item: Node, item: ItemStack) -> void:
 	var item_label: Label = ui_item.get_node("ItemCount")
@@ -66,3 +87,10 @@ func _update_ui_item(ui_item: Node, item: ItemStack) -> void:
 
 func get_held_item() -> ItemStack:
 	return items[selected_slot + 27]
+
+func set_opened(open: bool) -> void:
+	menu.visible = open
+	hotbar.visible = !open
+
+func is_opened() -> bool:
+	return menu.visible
