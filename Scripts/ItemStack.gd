@@ -22,3 +22,8 @@ static var type_names: Array[String] = [
 	"Pickaxe",
 	"Axe",
 ]
+
+static var type_display: Array[PackedScene] = [
+	preload("res://Scenes/Items/rock_display.tscn"),
+	preload("res://Scenes/Items/log_display.tscn"),
+]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhgwvpmknjv7c"]
+
+[ext_resource type="Script" path="res://Scripts/DroppedItem.gd" id="1_nnawm"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7qh4i"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bdfr6"]
+radius = 0.75
+
+[node name="DroppedItem" type="RigidBody3D"]
+script = ExtResource("1_nnawm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7qh4i")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_bdfr6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]

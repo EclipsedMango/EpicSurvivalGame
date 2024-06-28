@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1mh0stp41hr5"]
+
+[ext_resource type="PackedScene" uid="uid://dkonx1ug7cljx" path="res://Assets/Models/Log1COLOUR.glb" id="1_27t3l"]
+
+[node name="Log1COLOUR" instance=ExtResource("1_27t3l")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbkvn3mh5ff31"]
+[gd_scene load_steps=13 format=3 uid="uid://dbkvn3mh5ff31"]
 
 [ext_resource type="PackedScene" uid="uid://wygpiaun5mxw" path="res://Scenes/terrain_test.tscn" id="1_6r6n0"]
 [ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
 [ext_resource type="PackedScene" uid="uid://brq1rqhw4t21k" path="res://Scenes/rock.tscn" id="4_6j0fb"]
 [ext_resource type="Script" path="res://Scripts/Rockspawner.gd" id="4_ye4sx"]
 [ext_resource type="Script" path="res://Scripts/FPS.gd" id="5_ro4ot"]
+[ext_resource type="PackedScene" uid="uid://c68hil71myykb" path="res://Scenes/tree.tscn" id="6_fdd5e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qq1ji"]
 sky_top_color = Color(0.2, 0.376471, 0.513726, 1)
@@ -64,7 +65,7 @@ camera_attributes = SubResource("CameraAttributesPractical_ah7ol")
 transform = Transform3D(1, 0, 0, 0, -0.554016, 0.832506, 0, -0.832506, -0.554016, 0, 20.282, -68.5258)
 shadow_enabled = true
 
-[node name="PlayerRelated" type="Node" parent="."]
+[node name="PlayerRelated" type="Node3D" parent="."]
 
 [node name="Player" parent="PlayerRelated" instance=ExtResource("2_voc7m")]
 
@@ -74,7 +75,7 @@ offset_bottom = 23.0
 horizontal_alignment = 1
 script = ExtResource("5_ro4ot")
 
-[node name="Blocks" type="Node" parent="."]
+[node name="Blocks" type="Node3D" parent="."]
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.40181, 2)
@@ -111,3 +112,6 @@ script = ExtResource("4_ye4sx")
 
 [node name="Rock" parent="Blocks/Rockspawner" instance=ExtResource("4_6j0fb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.56269, 6.43175)
+
+[node name="Tree" parent="Blocks/Rockspawner" instance=ExtResource("6_fdd5e")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.43469, 3.13902, 0.095138)

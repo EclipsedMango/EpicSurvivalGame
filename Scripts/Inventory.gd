@@ -15,6 +15,12 @@ var cursor_item: ItemStack = null
 var selected_slot: int = 0
 
 func _ready() -> void:
+	for i in range(27, 36):
+		var ui_item = _get_ui_hotbar_item(i)
+		ui_item.get_node("Button").queue_free()
+	
+	ui_cursor_item.get_node("Button").queue_free()
+	
 	for i in range(inv_size):
 		items.append(null)
 	
@@ -63,27 +69,34 @@ func _get_ui_hotbar_item(index: int) -> Control:
 	return hotbar_grid.get_child(index - 27)
 
 func clicked_item(index: int) -> void:
-	var temp = cursor_item
-	cursor_item = items[index]
-	items[index] = temp
+	if cursor_item != null && items[index] != null && _try_merge_stack(items[index], cursor_item):
+		cursor_item = null
+	else:
+		_swap_with_cursor(index)
 	
 	var ui_item = _get_ui_item(index)
 	
-	_update_ui_item(ui_item, items[index])
+	_update_ui_slot(index, items[index])
 	_update_ui_item(ui_cursor_item, cursor_item)
+
+func _update_ui_slot(index: int, item: ItemStack) -> void:
+	_update_ui_item(_get_ui_item(index), item)
 	
 	if index > 26:
 		var hotbar_item = _get_ui_hotbar_item(index)
 		_update_ui_item(hotbar_item, items[index])
 
 func _update_ui_item(ui_item: Node, item: ItemStack) -> void:
-	var item_label: Label = ui_item.get_node("ItemCount")
+	var item_label: Label = ui_item.get_node("ItemName")
+	var item_count: Label = ui_item.get_node("ItemCount")
 	
 	if item == null:
 		item_label.text = ""
+		item_count.text = ""
 		return
 	
 	item_label.text = ItemStack.type_names[item.type]
+	item_count.text = str(item.amount)
 
 func get_held_item() -> ItemStack:
 	return items[selected_slot + 27]
@@ -94,3 +107,30 @@ func set_opened(open: bool) -> void:
 
 func is_opened() -> bool:
 	return menu.visible
+
+func add_item(item: ItemStack) -> bool:
+	for i in range(inv_size):
+		if items[i] != null && items[i].type == item.type:
+			_try_merge_stack(items[i], item)
+			_update_ui_slot(i, items[i])
+			return true
+	
+	for i in range(inv_size):
+		if items[i] == null:
+			items[i] = item
+			_update_ui_slot(i, items[i])
+			return true
+	
+	return false
+
+func _try_merge_stack(item1: ItemStack, item2: ItemStack) -> bool:
+	if item1.type == item2.type:
+		item1.amount += item2.amount
+		return true
+	
+	return false
+
+func _swap_with_cursor(index: int) -> void:
+	var temp = cursor_item
+	cursor_item = items[index]
+	items[index] = temp

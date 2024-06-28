@@ -23,15 +23,15 @@ var player_res: PackedScene = load("res://Scenes/player.tscn")
 @onready var health_label: Label = $PlayerHealth
 @onready var pause_menu: Control = $PauseMenu
 @onready var respawn_menu: Control = $RespawnMenu
-@onready var inventory_menu: Inventory = $Inventory
+@onready var inventory: Inventory = $Inventory
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	pause_menu.visible = false
 	respawn_menu.visible = false
-	inventory_menu.visible = true
-	inventory_menu.set_opened(false)
+	inventory.visible = true
+	inventory.set_opened(false)
 
 
 func _physics_process(delta) -> void:
@@ -106,19 +106,20 @@ func _physics_process(delta) -> void:
 		var result: Dictionary = space_state.intersect_ray(query)
 		
 		if result.has("collider") && result.collider.has_method("damage") \
-				&& inventory_menu.get_held_item() != null \
-				&& inventory_menu.get_held_item().type == ItemStack.ItemType.Pickaxe:
+				&& inventory.get_held_item() != null \
+				&& inventory.get_held_item().type == ItemStack.ItemType.Pickaxe:
 			result.collider.damage(self, 1.0)
 
 	# Player Death.
 	if health <= 0:
 		respawn_menu.visible = true
 		pause_menu.visible = false
-		inventory_menu.set_opened(false)
+		inventory.set_opened(false)
+		inventory.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	# Pause Menu.
-	if Input.is_action_just_pressed("pause") && !inventory_menu.visible && !respawn_menu.visible:
+	if Input.is_action_just_pressed("pause") && !inventory.is_opened() && !respawn_menu.visible:
 		pause_menu.visible = !pause_menu.visible
 		if pause_menu.visible:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -127,11 +128,11 @@ func _physics_process(delta) -> void:
 
 	# Inventory Menu.
 	if (Input.is_action_just_pressed("open_inventory") || Input.is_action_just_pressed("pause")) && !pause_menu.visible && !respawn_menu.visible:
-		if inventory_menu.is_opened():
-			inventory_menu.set_opened(false)
+		if inventory.is_opened():
+			inventory.set_opened(false)
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		elif Input.is_action_just_pressed("open_inventory"):
-			inventory_menu.set_opened(true)
+			inventory.set_opened(true)
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	move_and_slide()
@@ -173,4 +174,4 @@ func is_held(action: StringName) -> bool:
 	return !is_menu_open() && Input.is_action_pressed(action)
 
 func is_menu_open() -> bool:
-	return pause_menu.visible || respawn_menu.visible || inventory_menu.is_opened()
+	return pause_menu.visible || respawn_menu.visible || inventory.is_opened()

@@ -2,8 +2,11 @@ extends Node
 
 const SPAWN_RANGE: float = 200.0 
 
-var rock_res: PackedScene = preload("res://Scenes/rock.tscn")
 var height_map: Texture2D = preload("res://heightmap1.png")
+var objects: Array[PackedScene] = [
+	preload("res://Scenes/rock.tscn"),
+	preload("res://Scenes/tree.tscn"),
+]
 
 func _ready() -> void:
 	randomize()
@@ -11,7 +14,7 @@ func _ready() -> void:
 	var image := height_map.get_image() 
 	
 	for i in range(600):
-		var rock: Node3D = rock_res.instantiate()
+		var rock: Node3D = objects[randi() % objects.size()].instantiate()
 		rock.position = Vector3(randf_range(-SPAWN_RANGE, SPAWN_RANGE), 0, randf_range(-SPAWN_RANGE, SPAWN_RANGE))
 	
 		rock.rotation.y = randf() * TAU

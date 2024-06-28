@@ -37,14 +37,24 @@ texture = ExtResource("1_0eoka")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ItemCount" type="Label" parent="."]
-layout_mode = 2
-text = "Hallo"
-horizontal_alignment = 1
-
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ie2xh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_7dbr3")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_plqoo")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_3smpp")
+
+[node name="ItemName" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Hallo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemCount" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 12
+text = "Hallo"
+horizontal_alignment = 2
+vertical_alignment = 2

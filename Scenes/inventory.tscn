@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bx3enqaqj2bvq"]
+[gd_scene load_steps=6 format=3 uid="uid://bx3enqaqj2bvq"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="1_hpfk4"]
 [ext_resource type="Texture2D" uid="uid://crurudbckpe4j" path="res://Assets/Art/Textures/inventory.png" id="1_qivim"]
 [ext_resource type="PackedScene" uid="uid://cccy3p17tx25c" path="res://Scenes/ui_item_stack.tscn" id="2_mmi5o"]
-[ext_resource type="Texture2D" uid="uid://der152ylpctsg" path="res://icon.svg" id="4_6llqd"]
 [ext_resource type="Texture2D" uid="uid://b438nicufrs6d" path="res://Assets/Art/Textures/hotbar.png" id="5_rj0ue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anabp"]
@@ -20,12 +19,12 @@ grow_vertical = 2
 script = ExtResource("1_hpfk4")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
-layout_mode = 2
-offset_left = 509.0
-offset_top = 240.0
-offset_right = 1409.0
-offset_bottom = 840.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="CenterContainer"]
 custom_minimum_size = Vector2(900, 600)
@@ -179,54 +178,30 @@ layout_mode = 2
 [node name="TextureRect9" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="CursorItem" type="MarginContainer" parent="CenterContainer/Control"]
+[node name="CursorItem" parent="CenterContainer/Control" instance=ExtResource("2_mmi5o")]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+layout_mode = 0
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/Control/CursorItem"]
-visible = false
-layout_mode = 2
-mouse_filter = 2
-texture = ExtResource("4_6llqd")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="ItemCount" type="Label" parent="CenterContainer/Control/CursorItem"]
-layout_mode = 2
-text = "Hallo"
-horizontal_alignment = 1
-
-[node name="Hotbar" type="Control" parent="."]
-unique_name_in_owner = true
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -126.625
-offset_bottom = -21.1245
+offset_top = -139.74
+offset_bottom = -34.7397
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
+metadata/_edit_group_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Hotbar"]
+[node name="Hotbar" type="Control" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1919, 105.5)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Hotbar"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,7 +212,7 @@ texture = ExtResource("5_rj0ue")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Control" type="Control" parent="Hotbar"]
+[node name="Control" type="Control" parent="HBoxContainer/Hotbar"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -251,7 +226,7 @@ offset_bottom = -11.5005
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Highlight" type="Panel" parent="Hotbar/Control"]
+[node name="Highlight" type="Panel" parent="HBoxContainer/Hotbar/Control"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -261,7 +236,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_anabp")
 
-[node name="HotbarGrid" type="GridContainer" parent="Hotbar"]
+[node name="HotbarGrid" type="GridContainer" parent="HBoxContainer/Hotbar"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 14
@@ -276,29 +251,29 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 9
 
-[node name="TextureRect" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect2" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect2" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect3" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect3" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect4" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect4" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect5" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect5" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect6" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect6" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect7" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect7" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect8" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect8" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2
 
-[node name="TextureRect9" parent="Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+[node name="TextureRect9" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
 layout_mode = 2

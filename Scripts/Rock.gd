@@ -1,5 +1,7 @@
 extends StaticBody3D
 
+var dropped_item_res: PackedScene = preload("res://Scenes/dropped_item.tscn")
+
 @onready var damage_zone: Area3D = $DamageZone
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 
@@ -27,6 +29,10 @@ func damage(damager: Variant, damage_amount: float):
 	invulnerable = true
 	if rock_health <= 0.0:
 		queue_free()
+		var dropped_item: DroppedItem = dropped_item_res.instantiate()
+		dropped_item.item = ItemStack.new(ItemStack.ItemType.Rock)
+		get_parent().get_parent().add_child(dropped_item)
+		dropped_item.global_position = global_position + Vector3(0, 0.7, 0)
 	
 	mesh.material_override.albedo_color = Color.BROWN
 	get_tree().create_timer(INVULNERABLE_TIMER).timeout.connect(func():
