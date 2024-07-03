@@ -2,5 +2,6 @@
 
 Main features:
 - Zane and Michael is cool
-- Adam is less cool
+- Adam is also pretty cool
+- Krystilize is least cool
 
