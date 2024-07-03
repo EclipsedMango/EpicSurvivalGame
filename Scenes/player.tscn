@@ -105,7 +105,6 @@ theme_override_font_sizes/font_size = 50
 text = "Epic Survival Game"
 
 [node name="RespawnMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,6 +183,23 @@ theme_override_font_sizes/font_size = 50
 text = "You Died!"
 
 [node name="Inventory" parent="." instance=ExtResource("5_ejf2h")]
+visible = false
+
+[node name="OptionsMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Crosshair" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hallo"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Exit to Menu" to="PauseMenu" method="_on_exit_to_menu_pressed"]

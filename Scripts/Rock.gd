@@ -30,9 +30,9 @@ func damage(damager: Variant, damage_amount: float):
 	if rock_health <= 0.0:
 		queue_free()
 		var dropped_item: DroppedItem = dropped_item_res.instantiate()
-		dropped_item.item = ItemStack.new(ItemStack.ItemType.Rock)
+		dropped_item.item = ItemStack.new(ItemStack.ItemType.Rock, (scale.x - 0.5) * 10 + 1)
 		get_parent().get_parent().add_child(dropped_item)
-		dropped_item.global_position = global_position + Vector3(0, 0.7, 0)
+		dropped_item.global_position = global_position + Vector3(0, 1.0, 0)
 	
 	mesh.material_override.albedo_color = Color.BROWN
 	get_tree().create_timer(INVULNERABLE_TIMER).timeout.connect(func():

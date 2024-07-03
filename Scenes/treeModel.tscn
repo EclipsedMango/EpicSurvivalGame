@@ -1,0 +1,2286 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6biyj2l0eewt"]
+
+[ext_resource type="PackedScene" uid="uid://d0qxdri01t7lv" path="res://Assets/Models/Tree3FIXED.glb" id="1_fty7o"]
+[ext_resource type="Shader" uid="uid://cg217cn2jstv3" path="res://Shaders/Tree.tres" id="2_dlg3b"]
+[ext_resource type="Texture2D" uid="uid://dwu0xfgmv4vrk" path="res://Assets/Art/Textures/Tree3FIXED_Leaves Texture - Imgur.png" id="3_jug8j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lups3"]
+resource_name = "Material.006"
+cull_mode = 2
+albedo_color = Color(0.352264, 0.228671, 0.121301, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1kcxc"]
+render_priority = 0
+shader = ExtResource("2_dlg3b")
+shader_parameter/ColorParameter = Color(0.593426, 0.591916, 0.185461, 1)
+shader_parameter/ColorParameter2 = Color(0.369402, 0.406441, 0.308787, 1)
+shader_parameter/ColorParameter3 = Color(0.563966, 0.485886, 0.770385, 1)
+shader_parameter/Texture2DParameter = ExtResource("3_jug8j")
+shader_parameter/Texture2DParameter2 = ExtResource("3_jug8j")
+
+[node name="Tree3FIXED" instance=ExtResource("1_fty7o")]
+
+[node name="tree" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_lups3")
+
+[node name="Plane" parent="tree/leaves" index="0"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane2" parent="tree/leaves" index="1"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane3" parent="tree/leaves" index="2"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane4" parent="tree/leaves" index="3"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane5" parent="tree/leaves" index="4"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane6" parent="tree/leaves" index="5"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane7" parent="tree/leaves" index="6"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane8" parent="tree/leaves" index="7"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane9" parent="tree/leaves" index="8"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane10" parent="tree/leaves" index="9"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane11" parent="tree/leaves" index="10"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane12" parent="tree/leaves" index="11"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane13" parent="tree/leaves" index="12"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane14" parent="tree/leaves" index="13"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane15" parent="tree/leaves" index="14"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane16" parent="tree/leaves" index="15"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane17" parent="tree/leaves" index="16"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane18" parent="tree/leaves" index="17"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane19" parent="tree/leaves" index="18"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane20" parent="tree/leaves" index="19"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane21" parent="tree/leaves" index="20"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane22" parent="tree/leaves" index="21"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane23" parent="tree/leaves" index="22"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane24" parent="tree/leaves" index="23"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane25" parent="tree/leaves" index="24"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane26" parent="tree/leaves" index="25"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane27" parent="tree/leaves" index="26"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane28" parent="tree/leaves" index="27"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane29" parent="tree/leaves" index="28"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane30" parent="tree/leaves" index="29"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane31" parent="tree/leaves" index="30"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane32" parent="tree/leaves" index="31"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane33" parent="tree/leaves" index="32"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane34" parent="tree/leaves" index="33"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane35" parent="tree/leaves" index="34"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane36" parent="tree/leaves" index="35"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane37" parent="tree/leaves" index="36"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane38" parent="tree/leaves" index="37"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane39" parent="tree/leaves" index="38"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane40" parent="tree/leaves" index="39"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane41" parent="tree/leaves" index="40"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane42" parent="tree/leaves" index="41"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane43" parent="tree/leaves" index="42"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane44" parent="tree/leaves" index="43"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane45" parent="tree/leaves" index="44"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane46" parent="tree/leaves" index="45"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane47" parent="tree/leaves" index="46"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane48" parent="tree/leaves" index="47"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane49" parent="tree/leaves" index="48"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane50" parent="tree/leaves" index="49"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane51" parent="tree/leaves" index="50"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane52" parent="tree/leaves" index="51"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane53" parent="tree/leaves" index="52"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane54" parent="tree/leaves" index="53"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane55" parent="tree/leaves" index="54"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane56" parent="tree/leaves" index="55"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane57" parent="tree/leaves" index="56"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane58" parent="tree/leaves" index="57"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane59" parent="tree/leaves" index="58"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane60" parent="tree/leaves" index="59"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane61" parent="tree/leaves" index="60"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane62" parent="tree/leaves" index="61"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane63" parent="tree/leaves" index="62"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane64" parent="tree/leaves" index="63"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane65" parent="tree/leaves" index="64"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane66" parent="tree/leaves" index="65"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane67" parent="tree/leaves" index="66"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane68" parent="tree/leaves" index="67"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane69" parent="tree/leaves" index="68"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane70" parent="tree/leaves" index="69"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane71" parent="tree/leaves" index="70"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane72" parent="tree/leaves" index="71"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane73" parent="tree/leaves" index="72"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane74" parent="tree/leaves" index="73"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane75" parent="tree/leaves" index="74"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane76" parent="tree/leaves" index="75"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane77" parent="tree/leaves" index="76"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane78" parent="tree/leaves" index="77"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane79" parent="tree/leaves" index="78"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane80" parent="tree/leaves" index="79"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane81" parent="tree/leaves" index="80"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane82" parent="tree/leaves" index="81"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane83" parent="tree/leaves" index="82"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane84" parent="tree/leaves" index="83"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane85" parent="tree/leaves" index="84"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane86" parent="tree/leaves" index="85"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane87" parent="tree/leaves" index="86"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane88" parent="tree/leaves" index="87"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane89" parent="tree/leaves" index="88"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane90" parent="tree/leaves" index="89"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane91" parent="tree/leaves" index="90"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane92" parent="tree/leaves" index="91"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane93" parent="tree/leaves" index="92"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane94" parent="tree/leaves" index="93"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane95" parent="tree/leaves" index="94"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane96" parent="tree/leaves" index="95"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane97" parent="tree/leaves" index="96"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane98" parent="tree/leaves" index="97"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane99" parent="tree/leaves" index="98"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane100" parent="tree/leaves" index="99"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane101" parent="tree/leaves" index="100"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane102" parent="tree/leaves" index="101"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane103" parent="tree/leaves" index="102"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane104" parent="tree/leaves" index="103"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane105" parent="tree/leaves" index="104"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane106" parent="tree/leaves" index="105"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane107" parent="tree/leaves" index="106"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane108" parent="tree/leaves" index="107"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane109" parent="tree/leaves" index="108"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane110" parent="tree/leaves" index="109"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane111" parent="tree/leaves" index="110"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane112" parent="tree/leaves" index="111"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane113" parent="tree/leaves" index="112"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane114" parent="tree/leaves" index="113"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane115" parent="tree/leaves" index="114"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane116" parent="tree/leaves" index="115"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane117" parent="tree/leaves" index="116"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane118" parent="tree/leaves" index="117"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane119" parent="tree/leaves" index="118"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane120" parent="tree/leaves" index="119"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane121" parent="tree/leaves" index="120"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane122" parent="tree/leaves" index="121"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane123" parent="tree/leaves" index="122"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane124" parent="tree/leaves" index="123"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane125" parent="tree/leaves" index="124"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane126" parent="tree/leaves" index="125"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane127" parent="tree/leaves" index="126"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane128" parent="tree/leaves" index="127"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane129" parent="tree/leaves" index="128"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane130" parent="tree/leaves" index="129"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane131" parent="tree/leaves" index="130"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane132" parent="tree/leaves" index="131"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane133" parent="tree/leaves" index="132"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane134" parent="tree/leaves" index="133"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane135" parent="tree/leaves" index="134"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane136" parent="tree/leaves" index="135"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane137" parent="tree/leaves" index="136"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane138" parent="tree/leaves" index="137"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane139" parent="tree/leaves" index="138"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane140" parent="tree/leaves" index="139"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane141" parent="tree/leaves" index="140"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane142" parent="tree/leaves" index="141"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane143" parent="tree/leaves" index="142"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane144" parent="tree/leaves" index="143"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane145" parent="tree/leaves" index="144"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane146" parent="tree/leaves" index="145"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane147" parent="tree/leaves" index="146"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane148" parent="tree/leaves" index="147"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane149" parent="tree/leaves" index="148"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane150" parent="tree/leaves" index="149"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane151" parent="tree/leaves" index="150"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane152" parent="tree/leaves" index="151"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane153" parent="tree/leaves" index="152"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane154" parent="tree/leaves" index="153"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane155" parent="tree/leaves" index="154"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane156" parent="tree/leaves" index="155"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane157" parent="tree/leaves" index="156"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane158" parent="tree/leaves" index="157"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane159" parent="tree/leaves" index="158"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane160" parent="tree/leaves" index="159"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane161" parent="tree/leaves" index="160"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane162" parent="tree/leaves" index="161"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane163" parent="tree/leaves" index="162"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane164" parent="tree/leaves" index="163"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane165" parent="tree/leaves" index="164"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane166" parent="tree/leaves" index="165"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane167" parent="tree/leaves" index="166"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane168" parent="tree/leaves" index="167"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane169" parent="tree/leaves" index="168"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane170" parent="tree/leaves" index="169"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane171" parent="tree/leaves" index="170"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane172" parent="tree/leaves" index="171"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane173" parent="tree/leaves" index="172"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane174" parent="tree/leaves" index="173"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane175" parent="tree/leaves" index="174"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane176" parent="tree/leaves" index="175"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane177" parent="tree/leaves" index="176"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane178" parent="tree/leaves" index="177"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane179" parent="tree/leaves" index="178"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane180" parent="tree/leaves" index="179"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane181" parent="tree/leaves" index="180"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane182" parent="tree/leaves" index="181"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane183" parent="tree/leaves" index="182"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane184" parent="tree/leaves" index="183"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane185" parent="tree/leaves" index="184"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane186" parent="tree/leaves" index="185"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane187" parent="tree/leaves" index="186"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane188" parent="tree/leaves" index="187"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane189" parent="tree/leaves" index="188"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane190" parent="tree/leaves" index="189"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane191" parent="tree/leaves" index="190"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane192" parent="tree/leaves" index="191"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane193" parent="tree/leaves" index="192"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane194" parent="tree/leaves" index="193"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane195" parent="tree/leaves" index="194"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane196" parent="tree/leaves" index="195"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane197" parent="tree/leaves" index="196"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane198" parent="tree/leaves" index="197"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane199" parent="tree/leaves" index="198"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane200" parent="tree/leaves" index="199"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane201" parent="tree/leaves" index="200"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane202" parent="tree/leaves" index="201"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane203" parent="tree/leaves" index="202"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane204" parent="tree/leaves" index="203"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane205" parent="tree/leaves" index="204"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane206" parent="tree/leaves" index="205"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane207" parent="tree/leaves" index="206"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane208" parent="tree/leaves" index="207"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane209" parent="tree/leaves" index="208"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane210" parent="tree/leaves" index="209"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane211" parent="tree/leaves" index="210"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane212" parent="tree/leaves" index="211"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane213" parent="tree/leaves" index="212"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane214" parent="tree/leaves" index="213"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane215" parent="tree/leaves" index="214"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane216" parent="tree/leaves" index="215"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane217" parent="tree/leaves" index="216"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane218" parent="tree/leaves" index="217"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane219" parent="tree/leaves" index="218"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane220" parent="tree/leaves" index="219"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane221" parent="tree/leaves" index="220"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane222" parent="tree/leaves" index="221"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane223" parent="tree/leaves" index="222"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane224" parent="tree/leaves" index="223"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane225" parent="tree/leaves" index="224"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane226" parent="tree/leaves" index="225"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane227" parent="tree/leaves" index="226"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane228" parent="tree/leaves" index="227"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane229" parent="tree/leaves" index="228"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane230" parent="tree/leaves" index="229"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane231" parent="tree/leaves" index="230"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane232" parent="tree/leaves" index="231"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane233" parent="tree/leaves" index="232"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane234" parent="tree/leaves" index="233"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane235" parent="tree/leaves" index="234"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane236" parent="tree/leaves" index="235"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane237" parent="tree/leaves" index="236"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane238" parent="tree/leaves" index="237"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane239" parent="tree/leaves" index="238"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane240" parent="tree/leaves" index="239"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane241" parent="tree/leaves" index="240"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane242" parent="tree/leaves" index="241"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane243" parent="tree/leaves" index="242"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane244" parent="tree/leaves" index="243"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane245" parent="tree/leaves" index="244"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane246" parent="tree/leaves" index="245"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane247" parent="tree/leaves" index="246"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane248" parent="tree/leaves" index="247"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane249" parent="tree/leaves" index="248"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane250" parent="tree/leaves" index="249"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane251" parent="tree/leaves" index="250"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane252" parent="tree/leaves" index="251"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane253" parent="tree/leaves" index="252"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane254" parent="tree/leaves" index="253"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane255" parent="tree/leaves" index="254"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane256" parent="tree/leaves" index="255"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane257" parent="tree/leaves" index="256"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane258" parent="tree/leaves" index="257"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane259" parent="tree/leaves" index="258"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane260" parent="tree/leaves" index="259"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane261" parent="tree/leaves" index="260"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane262" parent="tree/leaves" index="261"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane263" parent="tree/leaves" index="262"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane264" parent="tree/leaves" index="263"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane265" parent="tree/leaves" index="264"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane266" parent="tree/leaves" index="265"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane267" parent="tree/leaves" index="266"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane268" parent="tree/leaves" index="267"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane269" parent="tree/leaves" index="268"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane270" parent="tree/leaves" index="269"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane271" parent="tree/leaves" index="270"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane272" parent="tree/leaves" index="271"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane273" parent="tree/leaves" index="272"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane274" parent="tree/leaves" index="273"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane275" parent="tree/leaves" index="274"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane276" parent="tree/leaves" index="275"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane277" parent="tree/leaves" index="276"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane278" parent="tree/leaves" index="277"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane279" parent="tree/leaves" index="278"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane280" parent="tree/leaves" index="279"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane281" parent="tree/leaves" index="280"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane282" parent="tree/leaves" index="281"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane283" parent="tree/leaves" index="282"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane284" parent="tree/leaves" index="283"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane285" parent="tree/leaves" index="284"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane286" parent="tree/leaves" index="285"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane287" parent="tree/leaves" index="286"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane288" parent="tree/leaves" index="287"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane289" parent="tree/leaves" index="288"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane290" parent="tree/leaves" index="289"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane291" parent="tree/leaves" index="290"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane292" parent="tree/leaves" index="291"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane293" parent="tree/leaves" index="292"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane294" parent="tree/leaves" index="293"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane295" parent="tree/leaves" index="294"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane296" parent="tree/leaves" index="295"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane297" parent="tree/leaves" index="296"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane298" parent="tree/leaves" index="297"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane299" parent="tree/leaves" index="298"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane300" parent="tree/leaves" index="299"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane301" parent="tree/leaves" index="300"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane302" parent="tree/leaves" index="301"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane303" parent="tree/leaves" index="302"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane304" parent="tree/leaves" index="303"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane305" parent="tree/leaves" index="304"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane306" parent="tree/leaves" index="305"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane307" parent="tree/leaves" index="306"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane308" parent="tree/leaves" index="307"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane309" parent="tree/leaves" index="308"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane310" parent="tree/leaves" index="309"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane311" parent="tree/leaves" index="310"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane312" parent="tree/leaves" index="311"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane313" parent="tree/leaves" index="312"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane314" parent="tree/leaves" index="313"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane315" parent="tree/leaves" index="314"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane316" parent="tree/leaves" index="315"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane317" parent="tree/leaves" index="316"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane318" parent="tree/leaves" index="317"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane319" parent="tree/leaves" index="318"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane320" parent="tree/leaves" index="319"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane321" parent="tree/leaves" index="320"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane322" parent="tree/leaves" index="321"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane323" parent="tree/leaves" index="322"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane324" parent="tree/leaves" index="323"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane325" parent="tree/leaves" index="324"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane326" parent="tree/leaves" index="325"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane327" parent="tree/leaves" index="326"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane328" parent="tree/leaves" index="327"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane329" parent="tree/leaves" index="328"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane330" parent="tree/leaves" index="329"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane331" parent="tree/leaves" index="330"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane332" parent="tree/leaves" index="331"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane333" parent="tree/leaves" index="332"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane334" parent="tree/leaves" index="333"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane335" parent="tree/leaves" index="334"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane336" parent="tree/leaves" index="335"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane337" parent="tree/leaves" index="336"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane338" parent="tree/leaves" index="337"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane339" parent="tree/leaves" index="338"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane340" parent="tree/leaves" index="339"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane341" parent="tree/leaves" index="340"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane342" parent="tree/leaves" index="341"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane343" parent="tree/leaves" index="342"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane344" parent="tree/leaves" index="343"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane345" parent="tree/leaves" index="344"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane346" parent="tree/leaves" index="345"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane347" parent="tree/leaves" index="346"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane348" parent="tree/leaves" index="347"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane349" parent="tree/leaves" index="348"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane350" parent="tree/leaves" index="349"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane351" parent="tree/leaves" index="350"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane352" parent="tree/leaves" index="351"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane353" parent="tree/leaves" index="352"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane354" parent="tree/leaves" index="353"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane355" parent="tree/leaves" index="354"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane356" parent="tree/leaves" index="355"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane357" parent="tree/leaves" index="356"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane358" parent="tree/leaves" index="357"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane359" parent="tree/leaves" index="358"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane360" parent="tree/leaves" index="359"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane361" parent="tree/leaves" index="360"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane362" parent="tree/leaves" index="361"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane363" parent="tree/leaves" index="362"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane364" parent="tree/leaves" index="363"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane365" parent="tree/leaves" index="364"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane366" parent="tree/leaves" index="365"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane367" parent="tree/leaves" index="366"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane368" parent="tree/leaves" index="367"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane369" parent="tree/leaves" index="368"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane370" parent="tree/leaves" index="369"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane371" parent="tree/leaves" index="370"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane372" parent="tree/leaves" index="371"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane373" parent="tree/leaves" index="372"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane374" parent="tree/leaves" index="373"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane375" parent="tree/leaves" index="374"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane376" parent="tree/leaves" index="375"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane377" parent="tree/leaves" index="376"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane378" parent="tree/leaves" index="377"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane379" parent="tree/leaves" index="378"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane380" parent="tree/leaves" index="379"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane381" parent="tree/leaves" index="380"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane382" parent="tree/leaves" index="381"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane383" parent="tree/leaves" index="382"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane384" parent="tree/leaves" index="383"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane385" parent="tree/leaves" index="384"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane386" parent="tree/leaves" index="385"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane387" parent="tree/leaves" index="386"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane388" parent="tree/leaves" index="387"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane389" parent="tree/leaves" index="388"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane390" parent="tree/leaves" index="389"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane391" parent="tree/leaves" index="390"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane392" parent="tree/leaves" index="391"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane393" parent="tree/leaves" index="392"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane394" parent="tree/leaves" index="393"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane395" parent="tree/leaves" index="394"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane396" parent="tree/leaves" index="395"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane397" parent="tree/leaves" index="396"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane398" parent="tree/leaves" index="397"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane399" parent="tree/leaves" index="398"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane400" parent="tree/leaves" index="399"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane401" parent="tree/leaves" index="400"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane402" parent="tree/leaves" index="401"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane403" parent="tree/leaves" index="402"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane404" parent="tree/leaves" index="403"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane405" parent="tree/leaves" index="404"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane406" parent="tree/leaves" index="405"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane407" parent="tree/leaves" index="406"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane408" parent="tree/leaves" index="407"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane409" parent="tree/leaves" index="408"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane410" parent="tree/leaves" index="409"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane411" parent="tree/leaves" index="410"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane412" parent="tree/leaves" index="411"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane413" parent="tree/leaves" index="412"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane414" parent="tree/leaves" index="413"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane415" parent="tree/leaves" index="414"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane416" parent="tree/leaves" index="415"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane417" parent="tree/leaves" index="416"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane418" parent="tree/leaves" index="417"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane419" parent="tree/leaves" index="418"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane420" parent="tree/leaves" index="419"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane421" parent="tree/leaves" index="420"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane422" parent="tree/leaves" index="421"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane423" parent="tree/leaves" index="422"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane424" parent="tree/leaves" index="423"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane425" parent="tree/leaves" index="424"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane426" parent="tree/leaves" index="425"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane427" parent="tree/leaves" index="426"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane428" parent="tree/leaves" index="427"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane429" parent="tree/leaves" index="428"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane430" parent="tree/leaves" index="429"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane431" parent="tree/leaves" index="430"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane432" parent="tree/leaves" index="431"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane433" parent="tree/leaves" index="432"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane434" parent="tree/leaves" index="433"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane435" parent="tree/leaves" index="434"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane436" parent="tree/leaves" index="435"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane437" parent="tree/leaves" index="436"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane438" parent="tree/leaves" index="437"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane439" parent="tree/leaves" index="438"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane440" parent="tree/leaves" index="439"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane441" parent="tree/leaves" index="440"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane442" parent="tree/leaves" index="441"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane443" parent="tree/leaves" index="442"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane444" parent="tree/leaves" index="443"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane445" parent="tree/leaves" index="444"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane446" parent="tree/leaves" index="445"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane447" parent="tree/leaves" index="446"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane448" parent="tree/leaves" index="447"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane449" parent="tree/leaves" index="448"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane450" parent="tree/leaves" index="449"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane451" parent="tree/leaves" index="450"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane452" parent="tree/leaves" index="451"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane453" parent="tree/leaves" index="452"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane454" parent="tree/leaves" index="453"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane455" parent="tree/leaves" index="454"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane456" parent="tree/leaves" index="455"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane457" parent="tree/leaves" index="456"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane458" parent="tree/leaves" index="457"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane459" parent="tree/leaves" index="458"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane460" parent="tree/leaves" index="459"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane461" parent="tree/leaves" index="460"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane462" parent="tree/leaves" index="461"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane463" parent="tree/leaves" index="462"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane464" parent="tree/leaves" index="463"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane465" parent="tree/leaves" index="464"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane466" parent="tree/leaves" index="465"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane467" parent="tree/leaves" index="466"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane468" parent="tree/leaves" index="467"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane469" parent="tree/leaves" index="468"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane470" parent="tree/leaves" index="469"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane471" parent="tree/leaves" index="470"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane472" parent="tree/leaves" index="471"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane473" parent="tree/leaves" index="472"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane474" parent="tree/leaves" index="473"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane475" parent="tree/leaves" index="474"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane476" parent="tree/leaves" index="475"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane477" parent="tree/leaves" index="476"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane478" parent="tree/leaves" index="477"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane479" parent="tree/leaves" index="478"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane480" parent="tree/leaves" index="479"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane481" parent="tree/leaves" index="480"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane482" parent="tree/leaves" index="481"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane483" parent="tree/leaves" index="482"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane484" parent="tree/leaves" index="483"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane485" parent="tree/leaves" index="484"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane486" parent="tree/leaves" index="485"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane487" parent="tree/leaves" index="486"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane488" parent="tree/leaves" index="487"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane489" parent="tree/leaves" index="488"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane490" parent="tree/leaves" index="489"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane491" parent="tree/leaves" index="490"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane492" parent="tree/leaves" index="491"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane493" parent="tree/leaves" index="492"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane494" parent="tree/leaves" index="493"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane495" parent="tree/leaves" index="494"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane496" parent="tree/leaves" index="495"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane497" parent="tree/leaves" index="496"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane498" parent="tree/leaves" index="497"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane499" parent="tree/leaves" index="498"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane500" parent="tree/leaves" index="499"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane501" parent="tree/leaves" index="500"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane502" parent="tree/leaves" index="501"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane503" parent="tree/leaves" index="502"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane504" parent="tree/leaves" index="503"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane505" parent="tree/leaves" index="504"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane506" parent="tree/leaves" index="505"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane507" parent="tree/leaves" index="506"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane508" parent="tree/leaves" index="507"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane509" parent="tree/leaves" index="508"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane510" parent="tree/leaves" index="509"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane511" parent="tree/leaves" index="510"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane512" parent="tree/leaves" index="511"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane513" parent="tree/leaves" index="512"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane514" parent="tree/leaves" index="513"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane515" parent="tree/leaves" index="514"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane516" parent="tree/leaves" index="515"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane517" parent="tree/leaves" index="516"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane518" parent="tree/leaves" index="517"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane519" parent="tree/leaves" index="518"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane520" parent="tree/leaves" index="519"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane521" parent="tree/leaves" index="520"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane522" parent="tree/leaves" index="521"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane523" parent="tree/leaves" index="522"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane524" parent="tree/leaves" index="523"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane525" parent="tree/leaves" index="524"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane526" parent="tree/leaves" index="525"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane527" parent="tree/leaves" index="526"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane528" parent="tree/leaves" index="527"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane529" parent="tree/leaves" index="528"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane530" parent="tree/leaves" index="529"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane531" parent="tree/leaves" index="530"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane532" parent="tree/leaves" index="531"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane533" parent="tree/leaves" index="532"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane534" parent="tree/leaves" index="533"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane535" parent="tree/leaves" index="534"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane536" parent="tree/leaves" index="535"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane537" parent="tree/leaves" index="536"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane538" parent="tree/leaves" index="537"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane539" parent="tree/leaves" index="538"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane540" parent="tree/leaves" index="539"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane541" parent="tree/leaves" index="540"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane542" parent="tree/leaves" index="541"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane543" parent="tree/leaves" index="542"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane544" parent="tree/leaves" index="543"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane545" parent="tree/leaves" index="544"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane546" parent="tree/leaves" index="545"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane547" parent="tree/leaves" index="546"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane548" parent="tree/leaves" index="547"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane549" parent="tree/leaves" index="548"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane550" parent="tree/leaves" index="549"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane551" parent="tree/leaves" index="550"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane552" parent="tree/leaves" index="551"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane553" parent="tree/leaves" index="552"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane554" parent="tree/leaves" index="553"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane555" parent="tree/leaves" index="554"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane556" parent="tree/leaves" index="555"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane557" parent="tree/leaves" index="556"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane558" parent="tree/leaves" index="557"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane559" parent="tree/leaves" index="558"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane560" parent="tree/leaves" index="559"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane561" parent="tree/leaves" index="560"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane562" parent="tree/leaves" index="561"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane563" parent="tree/leaves" index="562"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane564" parent="tree/leaves" index="563"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane565" parent="tree/leaves" index="564"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane566" parent="tree/leaves" index="565"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane567" parent="tree/leaves" index="566"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane568" parent="tree/leaves" index="567"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane569" parent="tree/leaves" index="568"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane570" parent="tree/leaves" index="569"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane571" parent="tree/leaves" index="570"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane572" parent="tree/leaves" index="571"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane573" parent="tree/leaves" index="572"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane574" parent="tree/leaves" index="573"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane575" parent="tree/leaves" index="574"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane576" parent="tree/leaves" index="575"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane577" parent="tree/leaves" index="576"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane578" parent="tree/leaves" index="577"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane579" parent="tree/leaves" index="578"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane580" parent="tree/leaves" index="579"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane581" parent="tree/leaves" index="580"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane582" parent="tree/leaves" index="581"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane583" parent="tree/leaves" index="582"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane584" parent="tree/leaves" index="583"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane585" parent="tree/leaves" index="584"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane586" parent="tree/leaves" index="585"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane587" parent="tree/leaves" index="586"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane588" parent="tree/leaves" index="587"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane589" parent="tree/leaves" index="588"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane590" parent="tree/leaves" index="589"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane591" parent="tree/leaves" index="590"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane592" parent="tree/leaves" index="591"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane593" parent="tree/leaves" index="592"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane594" parent="tree/leaves" index="593"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane595" parent="tree/leaves" index="594"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane596" parent="tree/leaves" index="595"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane597" parent="tree/leaves" index="596"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane598" parent="tree/leaves" index="597"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane599" parent="tree/leaves" index="598"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane600" parent="tree/leaves" index="599"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane601" parent="tree/leaves" index="600"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane602" parent="tree/leaves" index="601"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane603" parent="tree/leaves" index="602"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane604" parent="tree/leaves" index="603"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane605" parent="tree/leaves" index="604"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane606" parent="tree/leaves" index="605"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane607" parent="tree/leaves" index="606"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane608" parent="tree/leaves" index="607"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane609" parent="tree/leaves" index="608"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane610" parent="tree/leaves" index="609"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane611" parent="tree/leaves" index="610"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane612" parent="tree/leaves" index="611"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane613" parent="tree/leaves" index="612"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane614" parent="tree/leaves" index="613"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane615" parent="tree/leaves" index="614"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane616" parent="tree/leaves" index="615"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane617" parent="tree/leaves" index="616"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane618" parent="tree/leaves" index="617"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane619" parent="tree/leaves" index="618"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane620" parent="tree/leaves" index="619"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane621" parent="tree/leaves" index="620"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane622" parent="tree/leaves" index="621"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane623" parent="tree/leaves" index="622"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane624" parent="tree/leaves" index="623"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane625" parent="tree/leaves" index="624"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane626" parent="tree/leaves" index="625"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane627" parent="tree/leaves" index="626"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane628" parent="tree/leaves" index="627"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane629" parent="tree/leaves" index="628"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane630" parent="tree/leaves" index="629"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane631" parent="tree/leaves" index="630"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane632" parent="tree/leaves" index="631"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane633" parent="tree/leaves" index="632"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane634" parent="tree/leaves" index="633"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane635" parent="tree/leaves" index="634"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane636" parent="tree/leaves" index="635"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane637" parent="tree/leaves" index="636"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane638" parent="tree/leaves" index="637"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane639" parent="tree/leaves" index="638"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane640" parent="tree/leaves" index="639"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane641" parent="tree/leaves" index="640"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane642" parent="tree/leaves" index="641"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane643" parent="tree/leaves" index="642"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane644" parent="tree/leaves" index="643"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane645" parent="tree/leaves" index="644"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane646" parent="tree/leaves" index="645"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane647" parent="tree/leaves" index="646"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane648" parent="tree/leaves" index="647"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane649" parent="tree/leaves" index="648"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane650" parent="tree/leaves" index="649"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane651" parent="tree/leaves" index="650"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane652" parent="tree/leaves" index="651"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane653" parent="tree/leaves" index="652"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane654" parent="tree/leaves" index="653"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane655" parent="tree/leaves" index="654"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane656" parent="tree/leaves" index="655"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane657" parent="tree/leaves" index="656"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane658" parent="tree/leaves" index="657"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane659" parent="tree/leaves" index="658"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane660" parent="tree/leaves" index="659"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane661" parent="tree/leaves" index="660"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane662" parent="tree/leaves" index="661"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane663" parent="tree/leaves" index="662"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane664" parent="tree/leaves" index="663"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane665" parent="tree/leaves" index="664"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane666" parent="tree/leaves" index="665"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane667" parent="tree/leaves" index="666"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane668" parent="tree/leaves" index="667"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane669" parent="tree/leaves" index="668"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane670" parent="tree/leaves" index="669"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane671" parent="tree/leaves" index="670"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane672" parent="tree/leaves" index="671"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane673" parent="tree/leaves" index="672"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane674" parent="tree/leaves" index="673"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane675" parent="tree/leaves" index="674"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane676" parent="tree/leaves" index="675"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane677" parent="tree/leaves" index="676"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane678" parent="tree/leaves" index="677"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane679" parent="tree/leaves" index="678"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane680" parent="tree/leaves" index="679"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane681" parent="tree/leaves" index="680"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane682" parent="tree/leaves" index="681"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane683" parent="tree/leaves" index="682"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane684" parent="tree/leaves" index="683"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane685" parent="tree/leaves" index="684"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane686" parent="tree/leaves" index="685"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane687" parent="tree/leaves" index="686"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane688" parent="tree/leaves" index="687"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane689" parent="tree/leaves" index="688"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane690" parent="tree/leaves" index="689"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane691" parent="tree/leaves" index="690"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane692" parent="tree/leaves" index="691"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane693" parent="tree/leaves" index="692"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane694" parent="tree/leaves" index="693"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane695" parent="tree/leaves" index="694"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane696" parent="tree/leaves" index="695"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane697" parent="tree/leaves" index="696"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane698" parent="tree/leaves" index="697"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane699" parent="tree/leaves" index="698"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane700" parent="tree/leaves" index="699"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane701" parent="tree/leaves" index="700"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane702" parent="tree/leaves" index="701"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane703" parent="tree/leaves" index="702"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane704" parent="tree/leaves" index="703"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane705" parent="tree/leaves" index="704"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane706" parent="tree/leaves" index="705"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane707" parent="tree/leaves" index="706"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane708" parent="tree/leaves" index="707"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane709" parent="tree/leaves" index="708"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane710" parent="tree/leaves" index="709"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane711" parent="tree/leaves" index="710"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane712" parent="tree/leaves" index="711"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane713" parent="tree/leaves" index="712"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane714" parent="tree/leaves" index="713"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane715" parent="tree/leaves" index="714"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane716" parent="tree/leaves" index="715"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane717" parent="tree/leaves" index="716"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane718" parent="tree/leaves" index="717"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane719" parent="tree/leaves" index="718"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane720" parent="tree/leaves" index="719"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane721" parent="tree/leaves" index="720"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane722" parent="tree/leaves" index="721"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane723" parent="tree/leaves" index="722"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane724" parent="tree/leaves" index="723"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane725" parent="tree/leaves" index="724"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane726" parent="tree/leaves" index="725"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane727" parent="tree/leaves" index="726"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane728" parent="tree/leaves" index="727"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane729" parent="tree/leaves" index="728"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane730" parent="tree/leaves" index="729"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane731" parent="tree/leaves" index="730"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane732" parent="tree/leaves" index="731"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane733" parent="tree/leaves" index="732"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane734" parent="tree/leaves" index="733"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane735" parent="tree/leaves" index="734"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane736" parent="tree/leaves" index="735"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane737" parent="tree/leaves" index="736"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane738" parent="tree/leaves" index="737"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane739" parent="tree/leaves" index="738"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane740" parent="tree/leaves" index="739"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane741" parent="tree/leaves" index="740"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane742" parent="tree/leaves" index="741"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane743" parent="tree/leaves" index="742"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane744" parent="tree/leaves" index="743"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane745" parent="tree/leaves" index="744"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane746" parent="tree/leaves" index="745"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane747" parent="tree/leaves" index="746"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane748" parent="tree/leaves" index="747"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane749" parent="tree/leaves" index="748"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane750" parent="tree/leaves" index="749"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane751" parent="tree/leaves" index="750"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane752" parent="tree/leaves" index="751"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane753" parent="tree/leaves" index="752"]
+material_override = SubResource("ShaderMaterial_1kcxc")
+
+[node name="Plane754" parent="tree/leaves" index="753"]
+material_override = SubResource("ShaderMaterial_1kcxc")

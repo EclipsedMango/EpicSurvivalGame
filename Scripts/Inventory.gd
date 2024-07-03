@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 			_update_highlighted()
 
 func _update_highlighted() -> void:
-	highlight.position.x = 86.375 * selected_slot
+	highlight.position.x = 104.75 * selected_slot
 
 func _get_ui_item(index: int) -> Control:
 	if index > 26:
@@ -69,18 +69,35 @@ func _get_ui_hotbar_item(index: int) -> Control:
 	return hotbar_grid.get_child(index - 27)
 
 func clicked_item(index: int) -> void:
-	if cursor_item != null && items[index] != null && _try_merge_stack(items[index], cursor_item):
+	if Input.is_action_pressed("fast"):
+		var item: ItemStack = items[index]
+		if item == null:
+			return
+		
+		if index > 26:
+			items[index] = null
+			add_item(item)
+			_update_ui_slot(index)
+			return
+		
+		if add_item(item, 27):
+			items[index] = null
+			_update_ui_slot(index)
+		
+		return
+	
+	if cursor_item != null && _try_merge_stack(items[index], cursor_item):
 		cursor_item = null
 	else:
 		_swap_with_cursor(index)
 	
 	var ui_item = _get_ui_item(index)
 	
-	_update_ui_slot(index, items[index])
+	_update_ui_slot(index)
 	_update_ui_item(ui_cursor_item, cursor_item)
 
-func _update_ui_slot(index: int, item: ItemStack) -> void:
-	_update_ui_item(_get_ui_item(index), item)
+func _update_ui_slot(index: int) -> void:
+	_update_ui_item(_get_ui_item(index), items[index])
 	
 	if index > 26:
 		var hotbar_item = _get_ui_hotbar_item(index)
@@ -89,14 +106,18 @@ func _update_ui_slot(index: int, item: ItemStack) -> void:
 func _update_ui_item(ui_item: Node, item: ItemStack) -> void:
 	var item_label: Label = ui_item.get_node("ItemName")
 	var item_count: Label = ui_item.get_node("ItemCount")
+	var texture_rect: TextureRect = ui_item.get_node("TextureRect")
 	
 	if item == null:
 		item_label.text = ""
 		item_count.text = ""
+		texture_rect.visible = false
 		return
 	
 	item_label.text = ItemStack.type_names[item.type]
 	item_count.text = str(item.amount)
+	texture_rect.visible = true
+	texture_rect.texture = ItemStack.type_icons[item.type]
 
 func get_held_item() -> ItemStack:
 	return items[selected_slot + 27]
@@ -108,23 +129,31 @@ func set_opened(open: bool) -> void:
 func is_opened() -> bool:
 	return menu.visible
 
-func add_item(item: ItemStack) -> bool:
-	for i in range(inv_size):
-		if items[i] != null && items[i].type == item.type:
-			_try_merge_stack(items[i], item)
-			_update_ui_slot(i, items[i])
-			return true
+func add_item(item: ItemStack, start_index: int = 0) -> bool:
+	var slot: int = _find_first_slot(item.type, start_index)
+	if slot == -1:
+		return false
 	
-	for i in range(inv_size):
+	if !_try_merge_stack(items[slot], item):
+		items[slot] = item
+	
+	_update_ui_slot(slot)
+	
+	return true
+
+func _find_first_slot(type: ItemStack.ItemType, start_index: int = 0) -> int:
+	for i in range(start_index, inv_size):
+		if items[i] != null && items[i].type == type:
+			return i
+	
+	for i in range(start_index, inv_size):
 		if items[i] == null:
-			items[i] = item
-			_update_ui_slot(i, items[i])
-			return true
+			return i
 	
-	return false
+	return -1
 
 func _try_merge_stack(item1: ItemStack, item2: ItemStack) -> bool:
-	if item1.type == item2.type:
+	if item1 != null && item1.type == item2.type:
 		item1.amount += item2.amount
 		return true
 	
