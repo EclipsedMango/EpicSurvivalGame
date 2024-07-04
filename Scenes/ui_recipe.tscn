@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3jmireffqxgp"]
+
+[ext_resource type="PackedScene" uid="uid://cccy3p17tx25c" path="res://Scenes/ui_item_stack.tscn" id="1_kr5gx"]
+[ext_resource type="PackedScene" uid="uid://du08juske0mo1" path="res://Scenes/ui_ingredient_stack.tscn" id="2_kyq4o"]
+
+[node name="UiRecipe" type="VBoxContainer"]
+
+[node name="hallo" parent="." instance=ExtResource("1_kr5gx")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="hallo" parent="HFlowContainer" instance=ExtResource("2_kyq4o")]
+layout_mode = 2
+
+[node name="hallo3" parent="HFlowContainer" instance=ExtResource("2_kyq4o")]
+layout_mode = 2
+
+[node name="hallo2" parent="HFlowContainer" instance=ExtResource("2_kyq4o")]
+layout_mode = 2

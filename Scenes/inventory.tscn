@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bx3enqaqj2bvq"]
+[gd_scene load_steps=8 format=3 uid="uid://bx3enqaqj2bvq"]
 
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="1_hpfk4"]
 [ext_resource type="Texture2D" uid="uid://crurudbckpe4j" path="res://Assets/Art/Textures/inventory.png" id="1_qivim"]
 [ext_resource type="PackedScene" uid="uid://cccy3p17tx25c" path="res://Scenes/ui_item_stack.tscn" id="2_mmi5o"]
+[ext_resource type="PackedScene" uid="uid://d3jmireffqxgp" path="res://Scenes/ui_recipe.tscn" id="5_lxt81"]
+[ext_resource type="Script" path="res://Scenes/Crafting.gd" id="5_osfj6"]
 [ext_resource type="Texture2D" uid="uid://b438nicufrs6d" path="res://Assets/Art/Textures/hotbar.png" id="5_rj0ue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anabp"]
@@ -19,178 +21,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_hpfk4")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -960.5
-offset_top = -540.0
-offset_right = 516.5
-offset_bottom = 290.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.3, 1.3)
-
-[node name="Control" type="Control" parent="CenterContainer"]
-custom_minimum_size = Vector2(900, 600)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_qivim")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="InventoryGrid" type="GridContainer" parent="CenterContainer/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 85.0
-offset_top = 126.0
-offset_right = -90.0
-offset_bottom = -229.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 9
-
-[node name="TextureRect" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect2" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect3" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect4" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect5" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect6" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect7" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect8" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect9" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect10" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect11" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect12" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect13" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect14" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect15" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect16" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect17" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect18" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect19" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect20" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect21" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect22" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect23" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect24" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect25" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect26" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect27" parent="CenterContainer/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="InventoryHotbarGrid" type="GridContainer" parent="CenterContainer/Control"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 85.0
-offset_top = 85.0
-offset_right = -89.0
-offset_bottom = 164.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 9
-
-[node name="TextureRect" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect2" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect3" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect4" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect5" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect6" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect7" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect8" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="TextureRect9" parent="CenterContainer/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
-layout_mode = 2
-
-[node name="CursorItem" parent="CenterContainer/Control" instance=ExtResource("2_mmi5o")]
-unique_name_in_owner = true
-layout_mode = 0
-mouse_filter = 2
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -205,6 +35,7 @@ alignment = 1
 
 [node name="Hotbar" type="Control" parent="HBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -284,4 +115,206 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureRect9" parent="HBoxContainer/Hotbar/HotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="Menu" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Inventory" type="CenterContainer" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Menu/Inventory"]
+custom_minimum_size = Vector2(1200, 750)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Menu/Inventory/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qivim")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InventoryGrid" type="GridContainer" parent="Menu/Inventory/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 114.0
+offset_top = 143.0
+offset_right = -121.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 9
+
+[node name="TextureRect" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect10" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect11" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect12" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect13" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect14" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect15" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect16" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect17" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect18" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect19" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect20" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect21" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect22" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect23" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect24" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect25" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect26" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect27" parent="Menu/Inventory/Control/InventoryGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="InventoryHotbarGrid" type="GridContainer" parent="Menu/Inventory/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = 114.0
+offset_right = -120.0
+offset_bottom = 218.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 9
+
+[node name="TextureRect" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect4" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect5" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect6" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect7" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect8" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="TextureRect9" parent="Menu/Inventory/Control/InventoryHotbarGrid" instance=ExtResource("2_mmi5o")]
+layout_mode = 2
+
+[node name="CursorItem" parent="Menu/Inventory/Control" instance=ExtResource("2_mmi5o")]
+unique_name_in_owner = true
+layout_mode = 0
+mouse_filter = 2
+
+[node name="Crafting" type="Control" parent="Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 419.0
+offset_top = 738.0
+offset_right = -419.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_osfj6")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Menu/Crafting"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Crafting/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UiRecipe" parent="Menu/Crafting/ScrollContainer/HBoxContainer" instance=ExtResource("5_lxt81")]
 layout_mode = 2

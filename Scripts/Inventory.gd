@@ -5,7 +5,7 @@ extends Control
 @onready var grid_container_2: GridContainer = %InventoryHotbarGrid
 @onready var ui_cursor_item: MarginContainer = %CursorItem
 @onready var hotbar: Control = %Hotbar
-@onready var menu: Control = $CenterContainer
+@onready var menu: Control = $Menu
 @onready var hotbar_grid: GridContainer = %HotbarGrid
 @onready var highlight: Panel = %Highlight
 
@@ -30,7 +30,8 @@ func _ready() -> void:
 		var ui_item = _get_ui_item(i)
 		var item_button: Button = ui_item.get_node("Button")
 		
-		item_button.pressed.connect(clicked_item.bind(i))
+		#item_button.pressed.connect(clicked_item.bind(i))
+		item_button.gui_input.connect(_ui_item_gui_input.bind(i))
 		
 		_update_ui_item(ui_item, items[i])
 		
@@ -68,7 +69,15 @@ func _get_ui_item(index: int) -> Control:
 func _get_ui_hotbar_item(index: int) -> Control:
 	return hotbar_grid.get_child(index - 27)
 
-func clicked_item(index: int) -> void:
+func _ui_item_gui_input(event: InputEvent, index: int) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				_clicked_item(index)
+			MOUSE_BUTTON_RIGHT:
+				_right_clicked_item(index)
+
+func _clicked_item(index: int) -> void:
 	if Input.is_action_pressed("fast"):
 		var item: ItemStack = items[index]
 		if item == null:
@@ -95,6 +104,9 @@ func clicked_item(index: int) -> void:
 	
 	_update_ui_slot(index)
 	_update_ui_item(ui_cursor_item, cursor_item)
+
+func _right_clicked_item(index: int) -> void:
+	_try_split_stack(index)
 
 func _update_ui_slot(index: int) -> void:
 	_update_ui_item(_get_ui_item(index), items[index])
@@ -156,6 +168,22 @@ func _try_merge_stack(item1: ItemStack, item2: ItemStack) -> bool:
 	if item1 != null && item1.type == item2.type:
 		item1.amount += item2.amount
 		return true
+	
+	return false
+
+func _try_split_stack(index: int) -> bool:
+	var item: ItemStack = items[index]
+	if item != null && cursor_item == null && item.amount > 1:
+		item.amount /= 2
+		cursor_item = ItemStack.new(item.type, item.amount)
+		_update_ui_slot(index)
+		_update_ui_item(ui_cursor_item, cursor_item)
+		return true
+	
+	if item != null && cursor_item == null && item.amount == 1:
+		_swap_with_cursor(index)
+		_update_ui_slot(index)
+		_update_ui_item(ui_cursor_item, cursor_item)
 	
 	return false
 
