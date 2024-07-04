@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="1_hpfk4"]
 [ext_resource type="Texture2D" uid="uid://crurudbckpe4j" path="res://Assets/Art/Textures/inventory.png" id="1_qivim"]
 [ext_resource type="PackedScene" uid="uid://cccy3p17tx25c" path="res://Scenes/ui_item_stack.tscn" id="2_mmi5o"]
+[ext_resource type="Script" path="res://Scripts/Crafting.gd" id="5_k523s"]
 [ext_resource type="PackedScene" uid="uid://d3jmireffqxgp" path="res://Scenes/ui_recipe.tscn" id="5_lxt81"]
-[ext_resource type="Script" path="res://Scenes/Crafting.gd" id="5_osfj6"]
 [ext_resource type="Texture2D" uid="uid://b438nicufrs6d" path="res://Assets/Art/Textures/hotbar.png" id="5_rj0ue"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_anabp"]
@@ -301,7 +301,7 @@ offset_top = 738.0
 offset_right = -419.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("5_osfj6")
+script = ExtResource("5_k523s")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Menu/Crafting"]
 layout_mode = 1
@@ -311,10 +311,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/Crafting/ScrollContainer"]
+[node name="RecipeContainer" type="HBoxContainer" parent="Menu/Crafting/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="UiRecipe" parent="Menu/Crafting/ScrollContainer/HBoxContainer" instance=ExtResource("5_lxt81")]
+[node name="UiRecipe" parent="Menu/Crafting/ScrollContainer/RecipeContainer" instance=ExtResource("5_lxt81")]
 layout_mode = 2

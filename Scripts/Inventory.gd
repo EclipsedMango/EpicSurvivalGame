@@ -1,6 +1,8 @@
 class_name Inventory
 extends Control 
 
+signal inv_updated
+
 @onready var grid_container: GridContainer = %InventoryGrid
 @onready var grid_container_2: GridContainer = %InventoryHotbarGrid
 @onready var ui_cursor_item: MarginContainer = %CursorItem
@@ -87,11 +89,13 @@ func _clicked_item(index: int) -> void:
 			items[index] = null
 			add_item(item)
 			_update_ui_slot(index)
+			inv_updated.emit()
 			return
 		
 		if add_item(item, 27):
 			items[index] = null
 			_update_ui_slot(index)
+			inv_updated.emit()
 		
 		return
 	
@@ -104,9 +108,11 @@ func _clicked_item(index: int) -> void:
 	
 	_update_ui_slot(index)
 	_update_ui_item(ui_cursor_item, cursor_item)
+	inv_updated.emit()
 
 func _right_clicked_item(index: int) -> void:
 	_try_split_stack(index)
+	inv_updated.emit()
 
 func _update_ui_slot(index: int) -> void:
 	_update_ui_item(_get_ui_item(index), items[index])
@@ -116,17 +122,17 @@ func _update_ui_slot(index: int) -> void:
 		_update_ui_item(hotbar_item, items[index])
 
 func _update_ui_item(ui_item: Node, item: ItemStack) -> void:
-	var item_label: Label = ui_item.get_node("ItemName")
+	#var item_label: Label = ui_item.get_node("ItemName")
 	var item_count: Label = ui_item.get_node("ItemCount")
 	var texture_rect: TextureRect = ui_item.get_node("TextureRect")
 	
 	if item == null:
-		item_label.text = ""
+		#item_label.text = ""
 		item_count.text = ""
 		texture_rect.visible = false
 		return
 	
-	item_label.text = ItemStack.type_names[item.type]
+	#item_label.text = ItemStack.type_names[item.type]
 	item_count.text = str(item.amount)
 	texture_rect.visible = true
 	texture_rect.texture = ItemStack.type_icons[item.type]
@@ -151,6 +157,7 @@ func add_item(item: ItemStack, start_index: int = 0) -> bool:
 	
 	_update_ui_slot(slot)
 	
+	inv_updated.emit()
 	return true
 
 func _find_first_slot(type: ItemStack.ItemType, start_index: int = 0) -> int:
@@ -191,3 +198,30 @@ func _swap_with_cursor(index: int) -> void:
 	var temp = cursor_item
 	cursor_item = items[index]
 	items[index] = temp
+
+func count_items(type: ItemStack.ItemType, max_count: int) -> int:
+	var count: int = 0
+	for item in items:
+		if item != null && item.type == type:
+			count += item.amount
+			if count >= max_count:
+				return count
+	return count
+
+func remove_items(type: ItemStack.ItemType, amount: int) -> void:
+	for i in range(inv_size):
+		if items[i] != null && items[i].type == type:
+			if items[i].amount < amount:
+				amount -= items[i].amount
+				items[i] = null
+				_update_ui_slot(i)
+				continue
+			
+			items[i].amount -= amount
+			if items[i].amount == 0:
+				items[i] = null
+			_update_ui_slot(i)
+			inv_updated.emit()
+			return
+	printerr("failed to remove items. how the fuck did you get here?")
+	inv_updated.emit()
