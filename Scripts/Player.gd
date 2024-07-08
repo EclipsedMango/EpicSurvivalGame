@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
-const SPEED: float = 20.5
-const JUMP_VELOCITY: float = 40.5
+const SPEED: float = 2.5
+const JUMP_VELOCITY: float = 4.5
 const MOUSE_SENSITIVITY: float = 0.001
 const LOOK_LIMIT: float = PI / 2
 const RAY_LENGTH: int = 1000

@@ -181,8 +181,12 @@ func _try_merge_stack(item1: ItemStack, item2: ItemStack) -> bool:
 func _try_split_stack(index: int) -> bool:
 	var item: ItemStack = items[index]
 	if item != null && cursor_item == null && item.amount > 1:
+		var odd_num = item.amount % 2
 		item.amount /= 2
-		cursor_item = ItemStack.new(item.type, item.amount)
+		if odd_num:
+			cursor_item = ItemStack.new(item.type, item.amount + 1)
+		else:
+			cursor_item = ItemStack.new(item.type, item.amount)
 		_update_ui_slot(index)
 		_update_ui_item(ui_cursor_item, cursor_item)
 		return true

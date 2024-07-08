@@ -2,12 +2,15 @@ extends MeshInstance3D
 
 @onready var collision_shape_3d: CollisionShape3D = $"../CollisionShape3D"
 
-@export var noise_t: Texture2D
-@export var noise_f: Texture2D
+@export var noise_t: NoiseTexture2D
+@export var noise_f: NoiseTexture2D
 
 const hallo: float = 0.48
 
 func _ready() -> void:
+	noise_t.noise.seed = randi()
+	noise_f.noise.seed = randi()
+	
 	#var noise := _create_noise()
 	#var noise2 := _create_noise()
 	var waterNoise := _create_noise()
