@@ -14,7 +14,7 @@ render_priority = 0
 shader = ExtResource("2_dlg3b")
 shader_parameter/ColorParameter = Color(0.593426, 0.591916, 0.185461, 1)
 shader_parameter/ColorParameter2 = Color(0.369402, 0.406441, 0.308787, 1)
-shader_parameter/ColorParameter3 = Color(0.563966, 0.485886, 0.770385, 1)
+shader_parameter/ColorParameter3 = Color(0.754398, 0.710081, 0.895946, 1)
 shader_parameter/Texture2DParameter = ExtResource("3_jug8j")
 shader_parameter/Texture2DParameter2 = ExtResource("3_jug8j")
 

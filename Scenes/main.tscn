@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbkvn3mh5ff31"]
+[gd_scene load_steps=14 format=3 uid="uid://dbkvn3mh5ff31"]
 
 [ext_resource type="PackedScene" uid="uid://wygpiaun5mxw" path="res://Scenes/terrain_test.tscn" id="1_6r6n0"]
 [ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/Rockspawner.gd" id="4_ye4sx"]
 [ext_resource type="Script" path="res://Scripts/FPS.gd" id="5_ro4ot"]
 [ext_resource type="PackedScene" uid="uid://c68hil71myykb" path="res://Scenes/tree.tscn" id="6_fdd5e"]
+[ext_resource type="PackedScene" uid="uid://dxa83lc4w7a4q" path="res://Scenes/bush.tscn" id="7_8bi2c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qq1ji"]
 sky_top_color = Color(0.2, 0.376471, 0.513726, 1)
@@ -42,8 +43,7 @@ volumetric_fog_detail_spread = 5.2233
 volumetric_fog_sky_affect = 0.807
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ah7ol"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 50.0
+dof_blur_far_distance = 100.0
 dof_blur_far_transition = 50.0
 dof_blur_near_distance = 2.15
 dof_blur_amount = 0.03
@@ -115,3 +115,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.56269, 6.43175)
 
 [node name="Tree" parent="Blocks/Rockspawner" instance=ExtResource("6_fdd5e")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.43469, 3.13902, 0.095138)
+
+[node name="Bush" parent="Blocks/Rockspawner" instance=ExtResource("7_8bi2c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17888, 2.95198, 0)

@@ -2,10 +2,10 @@ extends StaticBody3D
 
 var dropped_item_res: PackedScene = preload("res://Scenes/dropped_item.tscn")
 
-@onready var model: Node3D = $Model
-@onready var mesh: MeshInstance3D = $Model/tree
+@onready var model: Node3D = $Tree4REFINED
+@onready var mesh: MeshInstance3D = $Tree4REFINED/tree
 
-@onready var original_color: Color = mesh.mesh.surface_get_material(0).albedo_color
+@onready var original_color: Color = mesh.material_override.albedo_color
 
 const INVULNERABLE_TIMER: float = 0.15
 

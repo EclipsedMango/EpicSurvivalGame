@@ -1,4 +1,4 @@
-extends GPUParticles3D
+extends Node3D
 
 @onready var player = $"/root/World/PlayerRelated/Player"
 

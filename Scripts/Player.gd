@@ -1,12 +1,12 @@
 class_name Player
 extends CharacterBody3D
 
-const SPEED: float = 2.5
-const JUMP_VELOCITY: float = 4.5
+const SPEED: float = 20.5
+const JUMP_VELOCITY: float = 40.5
 const MOUSE_SENSITIVITY: float = 0.001
 const LOOK_LIMIT: float = PI / 2
 const RAY_LENGTH: int = 1000
-const JUMP_LIMIT: int = 1
+const JUMP_LIMIT: int = 1000
 const INVULNERABLE_TIMER: float = 0.15
 
 var jumps: int = 0
@@ -49,7 +49,7 @@ func _physics_process(delta) -> void:
 		jumps = 0
 
 	# Handle jump.
-	if is_just_pressed("jump") and jumps < 2:
+	if is_just_pressed("jump") and jumps < JUMP_LIMIT:
 		jumps += 1;
 		velocity.y = JUMP_VELOCITY
 

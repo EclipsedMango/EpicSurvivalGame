@@ -27,7 +27,7 @@ func _inv_updated() -> void:
 				inventory._update_ui_item(ui_ingredient, ingredient)
 				ingredient_container.add_child(ui_ingredient)
 			
-			add_child(ui_recipe)
+			recipe_container.add_child(ui_recipe)
 
 func _recipe_pressed(recipe: Dictionary) -> void:
 	if inventory.cursor_item != null:

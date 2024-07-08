@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://gikghpfxpfjs"]
+
+[ext_resource type="PackedScene" uid="uid://dodtyr0xxyrbp" path="res://Assets/Models/TestBush4.glb" id="1_ticaj"]
+[ext_resource type="Shader" uid="uid://cmbj2ctvecw5y" path="res://Shaders/Bush.tres" id="2_34uq8"]
+[ext_resource type="Texture2D" uid="uid://cstj64wwfd4o6" path="res://Assets/Art/Textures/TestBush4_Bushes.png" id="3_8nrq8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3s8p7"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_208vq"]
+noise = SubResource("FastNoiseLite_3s8p7")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cyk5p"]
+frequency = 0.0075
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_agj74"]
+seamless = true
+noise = SubResource("FastNoiseLite_cyk5p")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfa3e"]
+render_priority = 0
+shader = ExtResource("2_34uq8")
+shader_parameter/ColorParameter = Color(0.226187, 0.253947, 0.227241, 1)
+shader_parameter/ColorParameter2 = Color(0.30005, 0.588894, 0.587548, 1)
+shader_parameter/ColorParameter3 = Color(0, 0.0845469, 0.0894742, 1)
+shader_parameter/WindNoise = SubResource("NoiseTexture2D_agj74")
+shader_parameter/Texture2DParameter = ExtResource("3_8nrq8")
+shader_parameter/Texture2DParameter2 = SubResource("NoiseTexture2D_208vq")
+
+[node name="TestBush4" instance=ExtResource("1_ticaj")]
+
+[node name="Plane_002" parent="." index="0"]
+visible = false
+
+[node name="Plane_001" parent="." index="1"]
+material_override = SubResource("ShaderMaterial_xfa3e")
