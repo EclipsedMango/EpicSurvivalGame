@@ -35,7 +35,6 @@ ssao_horizon = 0.12
 fog_light_energy = 2.0
 fog_density = 0.001
 fog_sky_affect = 0.094
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0208
 volumetric_fog_albedo = Color(0.206077, 0.375678, 0.460733, 1)
 volumetric_fog_emission = Color(0.648226, 0.795134, 0.849093, 1)
@@ -55,7 +54,7 @@ dof_blur_amount = 0.03
 [node name="World" type="Node3D"]
 
 [node name="TerrainTest" parent="." instance=ExtResource("1_6r6n0")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -46.7991, 0)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1.82135, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5b3qo")

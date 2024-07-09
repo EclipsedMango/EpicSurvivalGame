@@ -10,8 +10,6 @@ var objects: Array[PackedScene] = [
 ]
 
 func _ready() -> void:
-	randomize()
-	
 	var image := height_map.get_image() 
 	
 	var tree_noise := FastNoiseLite.new()

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://cplx0eu7nstsd"]
+[gd_resource type="VisualShader" load_steps=8 format=3 uid="uid://cplx0eu7nstsd"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0epmh"]
 input_name = "color"
@@ -6,8 +6,6 @@ input_name = "color"
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_vhw0h"]
 default_input_values = [0, 0.0, 1, 3.2]
 operator = 3
-
-[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_ye53j"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_bjfa5"]
 parameter_name = "ColorParameter3"
@@ -53,14 +51,9 @@ void vertex() {
 	float n_out6p2 = n_out5p0.z;
 
 
-// FloatOp:12
-	float n_in12p1 = 0.00000;
-	float n_out12p0 = n_out6p1 + n_in12p1;
-
-
 // FloatOp:11
 	float n_in11p1 = 3.20000;
-	float n_out11p0 = n_out12p0 / n_in11p1;
+	float n_out11p0 = n_out6p1 / n_in11p1;
 
 
 // Mix:4
@@ -94,12 +87,10 @@ nodes/vertex/6/position = Vector2(386, 263)
 nodes/vertex/8/node = SubResource("VisualShaderNodeColorParameter_a450h")
 nodes/vertex/8/position = Vector2(360, -120)
 nodes/vertex/11/node = SubResource("VisualShaderNodeFloatOp_vhw0h")
-nodes/vertex/11/position = Vector2(864, 168)
-nodes/vertex/12/node = SubResource("VisualShaderNodeFloatOp_ye53j")
-nodes/vertex/12/position = Vector2(650, 239)
+nodes/vertex/11/position = Vector2(720, 200)
 nodes/vertex/13/node = SubResource("VisualShaderNodeColorParameter_bjfa5")
 nodes/vertex/13/position = Vector2(360, 48)
-nodes/vertex/connections = PackedInt32Array(5, 0, 6, 0, 11, 0, 4, 2, 6, 1, 12, 0, 12, 0, 11, 0, 13, 0, 4, 1, 8, 0, 4, 0, 4, 0, 0, 6)
+nodes/vertex/connections = PackedInt32Array(5, 0, 6, 0, 11, 0, 4, 2, 13, 0, 4, 1, 8, 0, 4, 0, 4, 0, 0, 6, 6, 1, 11, 0)
 nodes/fragment/0/position = Vector2(1360, 0)
 nodes/fragment/2/node = SubResource("VisualShaderNodeInput_0epmh")
 nodes/fragment/2/position = Vector2(528, 24)
