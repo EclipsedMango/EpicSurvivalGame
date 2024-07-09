@@ -10,6 +10,7 @@ var objects: Array[PackedScene] = [
 ]
 
 func _ready() -> void:
+	print("Generating Decorations")
 	var image := height_map.get_image() 
 	
 	var tree_noise := FastNoiseLite.new()
@@ -26,7 +27,7 @@ func _ready() -> void:
 	bush_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	bush_noise.frequency = 0.01
 	
-	for i in range(600):
+	for i in range(10):
 		var tree: Node3D = objects[1].instantiate()
 		var rock: Node3D = objects[0].instantiate()
 		var bush: Node3D = objects[2].instantiate()

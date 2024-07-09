@@ -7,9 +7,9 @@ uniform sampler2D waterNoise;
 const float hallo = 0.48;
 
 void vertex() {
-	float test1 = texture(noise, vec2(VERTEX.x, VERTEX.z)).r * 0.25;
-	float test2 = texture(noise2, vec2(VERTEX.x, VERTEX.z)).r * 0.5;
-	float water = texture(waterNoise, vec2(VERTEX.x, VERTEX.z)).r * 0.25;
+	float test1 = texture(noise, VERTEX.xz).r * 0.25;
+	float test2 = texture(noise2, VERTEX.xz).r * 0.5;
+	float water = texture(waterNoise, VERTEX.xz).r * 0.25;
 	
 	float dist = max(abs(VERTEX.x), abs(VERTEX.z));
 	

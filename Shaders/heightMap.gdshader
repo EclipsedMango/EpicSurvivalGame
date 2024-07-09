@@ -11,27 +11,11 @@ uniform float max_grass_slope: hint_range(0., 1., 0.01) = 0.9;
 uniform float min_rockgrass_height = -8.0;
 uniform float max_sand_height = -6.0;
 
-uniform sampler2D testMap;
-
 varying float normal_y;
 varying float vertex_y;
 
-float get_height(vec3 vertex) {
-	vec2 pos = (vertex.xz + vec2(0.5)) / float(textureSize(testMap, 0).x);
-	return (texture(testMap, pos).r - 0.5) * 16.0;
-}
-
-vec3 get_normal(vec3 vertex, float adjacent_dist) {
-	vec3 west_vert = vertex + vec3(adjacent_dist, 0.0, 0.0);
-	west_vert.y = get_height(west_vert);
-	vec3 north_vert = vertex + vec3(0.0, 0.0, adjacent_dist);
-	north_vert.y = get_height(north_vert);
-	return normalize(cross(north_vert-vertex, west_vert-vertex));
-}
 
 void vertex() {
-	VERTEX.y += heightMap[int(VERTEX.x * 256.0 + 128.0) + int(VERTEX.z * 256.0 + 128.0) * 256];
-	//VERTEX.y = VERTEX.x;
 	float colHeight = VERTEX.y * 256.0;
 	COLOR = vec4(mix(topColor, bottomColor, colHeight), 1.0); 
 	
