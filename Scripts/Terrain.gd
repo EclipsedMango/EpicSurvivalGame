@@ -46,7 +46,7 @@ func _ready() -> void:
 			surface_tool.add_vertex(pos2)
 			surface_tool.add_vertex(pos1)
 
-			heightmap_data[(x + y * 256)] = pos0.y * 255
+			heightmap_data[x + y * 256] = int(pos0.y * 255)
 
 	print("Finishing Mesh Generation")
 	surface_tool.index()
@@ -75,9 +75,6 @@ func _create_noise() -> FastNoiseLite:
  
  
 func _get_height(x: int, y: int, noise_major: Image, noise_minor: Image, waterNoise: Image) -> Vector3:
-	const sea_dist: float = 0.8
-	const montan_dist: float = 0.2
- 
 	var value: float = 0.0
 	var pos := Vector2(float(x) / 256.0 - 0.5, float(y) / 256.0 - 0.5)
  

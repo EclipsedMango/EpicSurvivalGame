@@ -11,8 +11,6 @@ var objects: Array[PackedScene] = [
 
 func _ready() -> void:
 	print("Generating Decorations")
-	var image := height_map.get_image() 
-	
 	var tree_noise := FastNoiseLite.new()
 	tree_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	tree_noise.frequency = 0.01

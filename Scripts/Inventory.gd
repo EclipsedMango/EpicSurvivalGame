@@ -104,8 +104,6 @@ func _clicked_item(index: int) -> void:
 	else:
 		_swap_with_cursor(index)
 	
-	var ui_item = _get_ui_item(index)
-	
 	_update_ui_slot(index)
 	_update_ui_item(ui_cursor_item, cursor_item)
 	inv_updated.emit()

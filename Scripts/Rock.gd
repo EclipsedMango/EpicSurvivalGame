@@ -30,7 +30,7 @@ func damage(damager: Variant, damage_amount: float):
 	if rock_health <= 0.0:
 		queue_free()
 		var dropped_item: DroppedItem = dropped_item_res.instantiate()
-		dropped_item.item = ItemStack.new(ItemStack.ItemType.Rock, (scale.x - 0.5) * 10 + 1)
+		dropped_item.item = ItemStack.new(ItemStack.ItemType.Rock, int((scale.x - 0.5) * 10 + 1))
 		get_parent().get_parent().add_child(dropped_item)
 		dropped_item.global_position = global_position + Vector3(0, 1.0, 0)
 	
