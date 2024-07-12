@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbuymm13kjypt"]
+[gd_scene load_steps=8 format=3 uid="uid://bbuymm13kjypt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_btcab"]
 [ext_resource type="Script" path="res://Scripts/PlayerCam.gd" id="2_m88ak"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://bx3enqaqj2bvq" path="res://Scenes/inventory.tscn" id="5_ejf2h"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vo23"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v75x5"]
 radius = 0.25
 height = 1.0
 
@@ -200,6 +204,10 @@ grow_vertical = 2
 text = "+"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502403, 0)
+mesh = SubResource("CapsuleMesh_v75x5")
 
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/ButtonMenu/PanelContainer/MarginContainer/VBoxContainer/Exit to Menu" to="PauseMenu" method="_on_exit_to_menu_pressed"]

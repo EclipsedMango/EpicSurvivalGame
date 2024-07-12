@@ -7,6 +7,7 @@ var ui_recipe_res = preload("res://Scenes/ui_recipe.tscn")
 var ui_ingredient_res = preload("res://Scenes/ui_ingredient_stack.tscn")
 
 func _ready() -> void:
+	_inv_updated()
 	inventory.inv_updated.connect(_inv_updated)
 
 func _inv_updated() -> void:

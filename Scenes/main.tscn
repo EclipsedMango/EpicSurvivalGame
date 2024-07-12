@@ -29,23 +29,26 @@ ambient_light_energy = 0.5
 ssao_enabled = true
 ssao_radius = 12.36
 ssao_intensity = 3.11
-ssao_power = 1.66435
+ssao_power = 2.12131
 ssao_detail = 1.27
 ssao_horizon = 0.12
-fog_light_energy = 2.0
+fog_enabled = true
+fog_light_color = Color(0.458693, 0.603351, 0.662605, 1)
+fog_light_energy = 1.85
 fog_density = 0.001
-fog_sky_affect = 0.094
-volumetric_fog_density = 0.0208
+fog_sky_affect = 0.308
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0018
 volumetric_fog_albedo = Color(0.206077, 0.375678, 0.460733, 1)
 volumetric_fog_emission = Color(0.648226, 0.795134, 0.849093, 1)
 volumetric_fog_detail_spread = 5.2233
-volumetric_fog_sky_affect = 0.807
+volumetric_fog_sky_affect = 0.212
+volumetric_fog_temporal_reprojection_enabled = false
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ah7ol"]
-dof_blur_far_distance = 100.0
-dof_blur_far_transition = 50.0
-dof_blur_near_distance = 2.15
-dof_blur_amount = 0.03
+dof_blur_far_distance = 326.59
+dof_blur_near_distance = 0.01
+dof_blur_amount = 0.02
 
 [sub_resource type="BoxMesh" id="BoxMesh_2cujy"]
 
@@ -67,6 +70,7 @@ shadow_enabled = true
 [node name="PlayerRelated" type="Node3D" parent="."]
 
 [node name="Player" parent="PlayerRelated" instance=ExtResource("2_voc7m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 89.3986, 0)
 
 [node name="FPS" type="Label" parent="PlayerRelated"]
 offset_right = 40.0

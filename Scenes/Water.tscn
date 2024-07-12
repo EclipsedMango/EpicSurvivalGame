@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhwmqfsb4lhxg"]
+
+[ext_resource type="Shader" path="res://Shaders/water.gdshader" id="1_1w84j"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8rqlo"]
+noise_type = 2
+fractal_type = 2
+domain_warp_amplitude = 44.27
+domain_warp_frequency = 0.03
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_citdi"]
+seamless = true
+as_normal_map = true
+bump_strength = 14.0
+noise = SubResource("FastNoiseLite_8rqlo")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ut5rx"]
+noise_type = 2
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1qndi"]
+seamless = true
+as_normal_map = true
+bump_strength = 18.0
+noise = SubResource("FastNoiseLite_ut5rx")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fp5o8"]
+seamless = true
+seamless_blend_skirt = 0.427
+noise = SubResource("FastNoiseLite_8rqlo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3aj1"]
+render_priority = 0
+shader = ExtResource("1_1w84j")
+shader_parameter/albedo = Color(0.127444, 0.442192, 0.532273, 1)
+shader_parameter/albedo2 = Color(0.174374, 0.668035, 0.664215, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.005
+shader_parameter/noise_scale = 5.0
+shader_parameter/height_scale = 0.025
+shader_parameter/color_deep = Color(0.0489435, 0.351578, 0.447256, 1)
+shader_parameter/color_shallow = Color(0.205891, 0.51693, 0.593478, 1)
+shader_parameter/beers_law = 1.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.5
+shader_parameter/near = 0.5
+shader_parameter/far = 1000.0
+shader_parameter/edge_color = Color(0.837757, 0.959581, 0.99584, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_fp5o8")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_citdi")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_1qndi")
+
+[sub_resource type="QuadMesh" id="QuadMesh_8jagk"]
+material = SubResource("ShaderMaterial_x3aj1")
+subdivide_width = 600
+subdivide_depth = 600
+orientation = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_kynd0"]
+material = SubResource("ShaderMaterial_x3aj1")
+flip_faces = true
+subdivide_width = 600
+subdivide_depth = 600
+orientation = 1
+
+[node name="Water" type="MeshInstance3D"]
+transform = Transform3D(300, 0, 0, 0, 5, 0, 0, 0, 300, 0, -0.537335, -0.4131)
+transparency = 0.1
+cast_shadow = 0
+mesh = SubResource("QuadMesh_8jagk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transparency = 0.5
+mesh = SubResource("QuadMesh_kynd0")

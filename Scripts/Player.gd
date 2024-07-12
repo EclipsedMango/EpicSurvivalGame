@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody3D
 
-const SPEED: float = 20.5
+const SPEED: float = 5.0 #Original walking val is 2.5
 const JUMP_VELOCITY: float = 40.5 / 2
 const MOUSE_SENSITIVITY: float = 0.001
 const LOOK_LIMIT: float = PI / 2
@@ -69,7 +69,7 @@ func _physics_process(delta) -> void:
 	
 	# Running/Sprinting.
 	if fast:
-		direction *= 2.0
+		direction *= 20.0
 	
 	# vec2 velocity and direction.
 	var vel := Vector2(velocity.x, velocity.z)
