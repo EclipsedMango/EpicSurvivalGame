@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dbkvn3mh5ff31"]
 
-[ext_resource type="PackedScene" uid="uid://wygpiaun5mxw" path="res://Scenes/terrain_test.tscn" id="1_6r6n0"]
+[ext_resource type="PackedScene" uid="uid://bac2dijaowhfv" path="res://Scenes/Terrain.tscn" id="1_at8y6"]
 [ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
 [ext_resource type="PackedScene" uid="uid://brq1rqhw4t21k" path="res://Scenes/rock.tscn" id="4_6j0fb"]
 [ext_resource type="Script" path="res://Scripts/Rockspawner.gd" id="4_ye4sx"]
@@ -56,8 +56,8 @@ dof_blur_amount = 0.02
 
 [node name="World" type="Node3D"]
 
-[node name="TerrainTest" parent="." instance=ExtResource("1_6r6n0")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -1.82135, 0)
+[node name="Terrain" parent="." instance=ExtResource("1_at8y6")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5b3qo")
