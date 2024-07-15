@@ -13,7 +13,6 @@ var jumps: int = 0
 var health: float = 20.0
 var invulnerable: bool = false
 
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player_res: PackedScene = load("res://Scenes/player.tscn")
@@ -96,7 +95,7 @@ func _physics_process(delta) -> void:
 	velocity.x = vel.x
 	velocity.z = vel.y
 
-	health_label.text = str("Speed: ", vel.length(), "\nVel: ", velocity, "\nHealth: ", health)
+	health_label.text = str("Speed: ", vel.length(), "\nVel: ", velocity, "\nHealth: ", health, "\nHeight: ", global_position.y)
 
 	if is_just_pressed("attack"):
 		var origin: Vector3 = head.global_position
@@ -109,6 +108,10 @@ func _physics_process(delta) -> void:
 				&& inventory.get_held_item() != null \
 				&& inventory.get_held_item().type == ItemStack.ItemType.Pickaxe:
 			result.collider.damage(self, 1.0)
+
+	# Kill the player in water.
+	if global_position.y < 10.25:
+		damage_player(self, 1.0)
 
 	# Player Death.
 	if health <= 0:

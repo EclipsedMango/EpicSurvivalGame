@@ -1,7 +1,8 @@
-extends MeshInstance3D
- 
+@tool
+extends MeshInstance3D 
+
 @onready var collision_shape_3d: CollisionShape3D = $"../CollisionShape3D"
-@onready var grass_particles: GPUParticles3D = $"../../GrassOrigin/GPUParticles3D"
+@onready var grass_origin: Node3D = $"../../GrassOrigin"
 
 @export var gradient: Gradient
 @export var noise_major_t: NoiseTexture2D
@@ -22,7 +23,7 @@ func _ready() -> void:
 	var noise_major := noise_major_t.get_image()
 	var noise_minor := noise_minor_t.get_image()
  
-	var heightmap_data := PackedByteArray()
+	var heightmap_data := PackedFloat32Array()
 	heightmap_data.resize(256 * 256)
 
 	print("Generating Floor...")
@@ -46,7 +47,7 @@ func _ready() -> void:
 			surface_tool.add_vertex(pos2)
 			surface_tool.add_vertex(pos1)
 
-			heightmap_data[x + y * 256] = int(pos0.y * 255)
+			heightmap_data[x + y * 256] = pos0.y * 7.5
 
 	print("Finishing Mesh Generation")
 	surface_tool.index()
@@ -59,9 +60,11 @@ func _ready() -> void:
 	collision_shape_3d.shape.set_faces(mesh.get_faces())
 	collision_shape_3d.scale = Vector3.ONE
  
-	var heightmap := Image.create_from_data(256, 256, false, Image.FORMAT_L8, heightmap_data)
+	var heightmap := Image.create_from_data(256, 256, false, Image.FORMAT_RF, heightmap_data.to_byte_array())
 	var itex := ImageTexture.create_from_image(heightmap)
-	grass_particles.process_material.set_shader_parameter("map_heightmap", itex)
+	for grass_particles in grass_origin.get_children():
+		grass_particles.process_material.set_shader_parameter("map_heightmap", itex)
+
 	$TextureRect.texture = itex
 
 	print("Finished Creating Floor")

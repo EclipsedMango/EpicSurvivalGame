@@ -57,7 +57,6 @@ dof_blur_amount = 0.02
 [node name="World" type="Node3D"]
 
 [node name="Terrain" parent="." instance=ExtResource("1_at8y6")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5b3qo")

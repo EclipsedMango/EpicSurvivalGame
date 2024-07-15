@@ -1,6 +1,6 @@
-extends Node
+extends Node3D
 
-const SPAWN_RANGE: float = 200.0 
+const SPAWN_RANGE: float = 100.0 
 
 var height_map: Texture2D = preload("res://heightmap1.png")
 var objects: Array[PackedScene] = [
@@ -25,14 +25,19 @@ func _ready() -> void:
 	bush_noise.noise_type = FastNoiseLite.TYPE_SIMPLEX_SMOOTH
 	bush_noise.frequency = 0.01
 	
-	for i in range(10):
+	for i in range(150):
 		var tree: Node3D = objects[1].instantiate()
 		var rock: Node3D = objects[0].instantiate()
 		var bush: Node3D = objects[2].instantiate()
 		
-		_setup_spawn(tree, Vector2(1.5, 1.75), Vector2(1.0, 1.0), tree_noise)
-		_setup_spawn(rock, Vector2(0.5, 1.25), Vector2(0.5, 1.0), rock_noise)
-		_setup_spawn(bush, Vector2(0.6, 0.6), Vector2(1.5, 1.5), bush_noise)
+		while !_ray_based_spawning(tree, Vector2(1.5, 1.75), Vector2(1.0, 1.0), tree_noise):
+			pass
+		
+		while !_ray_based_spawning(rock, Vector2(0.5, 1.25), Vector2(0.5, 1.0), rock_noise):
+			pass
+		
+		while !_ray_based_spawning(bush, Vector2(0.6, 0.6), Vector2(1.5, 1.5), bush_noise):
+			pass
 
 func _setup_spawn(object: Node3D, scale: Vector2, pos: Vector2, noise: Noise) -> void:
 	var image := height_map.get_image() 
@@ -64,3 +69,39 @@ func _setup_spawn(object: Node3D, scale: Vector2, pos: Vector2, noise: Noise) ->
 	
 	if !found_near:
 		add_child(object)
+
+func _ray_based_spawning(object: Node3D, scale: Vector2, pos: Vector2, noise: Noise) -> bool:
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	
+	while true:
+		object.position = Vector3(randf_range(-SPAWN_RANGE, SPAWN_RANGE), 250, randf_range(-SPAWN_RANGE, SPAWN_RANGE))
+		
+		if 0.6 < (noise.get_noise_2d(object.position.x, object.position.z) + 1.0) * 0.5 || \
+			randf() < 0.1:
+				break
+	
+	object.rotation.y = randf() * TAU
+	
+	var ray_length = 350.0
+	var origin: Vector3 = object.position
+	var end = origin + Vector3(0, -ray_length, 0)
+	var query := PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	if result.has("collider"):
+		object.position.y = result.position.y - 0.25
+		if result.position.y < 11.5:
+			object.queue_free()
+			return false
+	
+	var rand_scale = randf_range(scale.x, scale.y)
+	object.scale = Vector3(rand_scale, rand_scale, rand_scale)
+	
+	for other in get_children():
+		if other.position.distance_to(object.position) < 1.5:
+			object.queue_free()
+			return false
+	
+	add_child(object)
+	return true
