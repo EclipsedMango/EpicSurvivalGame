@@ -36,7 +36,7 @@ float sdCircle( vec2 p, float r ) {
 }
 
 float get_height(vec2 pos) {
-	pos -= 0.5 * map_heightmap_size;
+	pos -= .5 * map_heightmap_size;
 	pos /= map_heightmap_size;
 	return terrain_amplitude * texture(map_heightmap, pos).r / 7.5 + terrain_offset.y;
 }

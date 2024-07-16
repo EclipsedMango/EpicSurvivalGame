@@ -18,13 +18,16 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var player_res: PackedScene = load("res://Scenes/player.tscn")
 
 @onready var head: Node3D = $Head
+@onready var camera: Camera3D = $Head/Camera3D
 @onready var reach: Node3D = $Head/Reach
 @onready var health_label: Label = $PlayerHealth
 @onready var pause_menu: Control = $PauseMenu
 @onready var respawn_menu: Control = $RespawnMenu
 @onready var inventory: Inventory = $Inventory
+@onready var view_model_camera: Camera3D = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 
 func _ready() -> void:
+	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	pause_menu.visible = false
@@ -34,6 +37,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta) -> void:
+	$Head/Camera3D/SubViewportContainer/SubViewport/Camera3D.global_transform = camera.global_transform
 	if is_menu_open():
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
@@ -111,7 +115,7 @@ func _physics_process(delta) -> void:
 
 	# Kill the player in water.
 	if global_position.y < 10.25:
-		damage_player(self, 1.0)
+		damage_player(self, 0.0)
 
 	# Player Death.
 	if health <= 0:
@@ -146,6 +150,7 @@ func _input(event: InputEvent) -> void:
 		rotation.y -= event.relative.x * MOUSE_SENSITIVITY
 		head.rotation.x = clampf(head.rotation.x - (event.relative.y * MOUSE_SENSITIVITY), -LOOK_LIMIT, LOOK_LIMIT)
 		velocity = velocity.rotated(Vector3.UP, -event.relative.x * MOUSE_SENSITIVITY)
+		view_model_camera.sway(event.relative.x, event.relative.y)
 
 func damage_player(damager: Variant, damage_done: float) -> void:
 	if invulnerable:

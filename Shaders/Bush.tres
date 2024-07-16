@@ -119,7 +119,7 @@ operator = 2
 [sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_im7uu"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_3ani2"]
-input_name = "node_position_world"
+input_name = "vertex"
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_1u651"]
 input_name = "uv"
@@ -224,7 +224,7 @@ void vertex() {
 
 
 // Input:2
-	vec3 n_out2p0 = NODE_POSITION_WORLD;
+	vec3 n_out2p0 = VERTEX;
 
 
 	WorldPos = vec3(0.0);

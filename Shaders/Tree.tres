@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=46 format=3 uid="uid://cg217cn2jstv3"]
+[gd_resource type="VisualShader" load_steps=48 format=3 uid="uid://cg217cn2jstv3"]
 
 [ext_resource type="Texture2D" uid="uid://dwu0xfgmv4vrk" path="res://Assets/Art/Textures/Tree3FIXED_Leaves Texture - Imgur.png" id="1_kx5er"]
 
@@ -123,7 +123,13 @@ operator = 2
 [sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_w0red"]
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_k037j"]
+input_name = "model_matrix"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_cjth0"]
 input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeTransformVecMult" id="VisualShaderNodeTransformVecMult_4bdie"]
+operator = 1
 
 [sub_resource type="VisualShaderNodeVaryingSetter" id="VisualShaderNodeVaryingSetter_llx0f"]
 varying_name = "WorldPos"
@@ -232,13 +238,21 @@ void vertex() {
 
 
 // Input:2
-	vec3 n_out2p0 = VERTEX;
+	mat4 n_out2p0 = MODEL_MATRIX;
+
+
+// Input:21
+	vec3 n_out21p0 = VERTEX;
+
+
+// TransformVectorMult:22
+	vec3 n_out22p0 = (vec4(n_out21p0, 1.0) * n_out2p0).xyz;
 
 
 // VectorDecompose:19
-	float n_out19p0 = n_out2p0.x;
-	float n_out19p1 = n_out2p0.y;
-	float n_out19p2 = n_out2p0.z;
+	float n_out19p0 = n_out22p0.x;
+	float n_out19p1 = n_out22p0.y;
+	float n_out19p2 = n_out22p0.z;
 
 
 // VaryingSetter:3
@@ -359,7 +373,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-2198.19, 3.05333)
 modes/cull = 2
 modes/diffuse = 3
 modes/specular = 1
@@ -367,7 +380,7 @@ flags/depth_prepass_alpha = true
 varyings/WorldPos = "0,4"
 nodes/vertex/0/position = Vector2(380, 220)
 nodes/vertex/2/node = SubResource("VisualShaderNodeInput_k037j")
-nodes/vertex/2/position = Vector2(-540, 560)
+nodes/vertex/2/position = Vector2(-760, 540)
 nodes/vertex/3/node = SubResource("VisualShaderNodeVaryingSetter_llx0f")
 nodes/vertex/3/position = Vector2(380, 500)
 nodes/vertex/4/node = SubResource("VisualShaderNodeInput_cu13c")
@@ -401,8 +414,12 @@ nodes/vertex/17/position = Vector2(-1340, -260)
 nodes/vertex/18/node = SubResource("VisualShaderNodeVectorOp_12rwi")
 nodes/vertex/18/position = Vector2(-280, 300)
 nodes/vertex/19/node = SubResource("VisualShaderNodeVectorDecompose_w0red")
-nodes/vertex/19/position = Vector2(-100, 500)
-nodes/vertex/connections = PackedInt32Array(4, 0, 5, 0, 5, 1, 6, 0, 9, 0, 10, 2, 7, 0, 8, 0, 6, 0, 11, 1, 10, 0, 11, 0, 12, 0, 10, 0, 14, 0, 15, 0, 15, 0, 16, 0, 15, 1, 16, 1, 16, 0, 17, 0, 13, 0, 17, 1, 17, 0, 12, 2, 11, 0, 18, 0, 18, 0, 8, 1, 8, 0, 0, 0, 2, 0, 19, 0, 19, 1, 3, 0)
+nodes/vertex/19/position = Vector2(-20, 500)
+nodes/vertex/21/node = SubResource("VisualShaderNodeInput_cjth0")
+nodes/vertex/21/position = Vector2(-760, 460)
+nodes/vertex/22/node = SubResource("VisualShaderNodeTransformVecMult_4bdie")
+nodes/vertex/22/position = Vector2(-340, 500)
+nodes/vertex/connections = PackedInt32Array(4, 0, 5, 0, 5, 1, 6, 0, 9, 0, 10, 2, 7, 0, 8, 0, 6, 0, 11, 1, 10, 0, 11, 0, 12, 0, 10, 0, 14, 0, 15, 0, 15, 0, 16, 0, 15, 1, 16, 1, 16, 0, 17, 0, 13, 0, 17, 1, 17, 0, 12, 2, 11, 0, 18, 0, 18, 0, 8, 1, 8, 0, 0, 0, 19, 1, 3, 0, 2, 0, 22, 0, 21, 0, 22, 1, 22, 0, 19, 0)
 nodes/fragment/0/position = Vector2(480, 160)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_3anwf")
 nodes/fragment/2/position = Vector2(-1680, 240)

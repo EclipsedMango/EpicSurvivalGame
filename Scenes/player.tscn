@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbuymm13kjypt"]
+[gd_scene load_steps=9 format=3 uid="uid://bbuymm13kjypt"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_btcab"]
 [ext_resource type="Script" path="res://Scripts/PlayerCam.gd" id="2_m88ak"]
+[ext_resource type="PackedScene" uid="uid://cfopis3leus6v" path="res://Scenes/view_model.tscn" id="3_bmjnk"]
 [ext_resource type="Script" path="res://Scripts/PauseMenu.gd" id="3_gwn0o"]
 [ext_resource type="Script" path="res://Scripts/RespawnMenu.gd" id="4_a400j"]
 [ext_resource type="PackedScene" uid="uid://bx3enqaqj2bvq" path="res://Scenes/inventory.tscn" id="5_ejf2h"]
@@ -26,8 +27,25 @@ shape = SubResource("CapsuleShape3D_3vo23")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 524287
 fov = 90.0
 script = ExtResource("2_m88ak")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" parent="Head/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bmjnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -228.85, 0)
+cull_mask = 524288
 
 [node name="Reach" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxa83lc4w7a4q"]
 
 [ext_resource type="Texture2D" uid="uid://wr3ixihy2cms" path="res://Assets/Art/Textures/BushLOD.png" id="1_6meqw"]
-[ext_resource type="Script" path="res://Scenes/bush.gd" id="1_g3o7x"]
+[ext_resource type="Script" path="res://Scripts/bush.gd" id="1_g3o7x"]
 [ext_resource type="PackedScene" uid="uid://gikghpfxpfjs" path="res://Scenes/testBush4.tscn" id="2_ljfxu"]
 
 [node name="Node3D" type="Node3D"]

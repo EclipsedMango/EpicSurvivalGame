@@ -7,7 +7,7 @@ var dropped_item_res: PackedScene = preload("res://Scenes/dropped_item.tscn")
 
 @onready var original_color: Color = mesh.material_override.albedo_color
 
-const INVULNERABLE_TIMER: float = 0.15
+const INVULNERABLE_TIMER: float = 0.4
 
 var health: float = 5.0
 var basic_damage: float = 1.0
@@ -35,6 +35,8 @@ func damage(damager: Variant, damage_amount: float):
 	mesh.material_override.albedo_color = Color.BROWN
 	get_tree().create_timer(INVULNERABLE_TIMER).timeout.connect(func():
 		invulnerable = false
-		mesh.material_override.albedo_color = original_color
+		get_tree().create_timer(0.2).timeout.connect(func():
+			mesh.material_override.albedo_color = original_color
+			)
 	)
 	
