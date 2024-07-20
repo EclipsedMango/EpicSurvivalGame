@@ -20,6 +20,13 @@ func _process(delta: float) -> void:
 	model.visible = get_viewport().get_camera_3d().global_position.distance_to(global_position) < 20
 
 func damage(damager: Variant, damage_amount: float):
+	if !damager is Player:
+		return
+	
+	if damager.inventory.get_held_item() == null \
+			|| damager.inventory.get_held_item().type != ItemStack.ItemType.Axe:
+		return
+	
 	if invulnerable:
 		return
 	

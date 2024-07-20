@@ -1,7 +1,4 @@
-[gd_resource type="Shader" format=3 uid="uid://cmyeclhrvhn2o"]
-
-[resource]
-code = "shader_type particles;
+shader_type particles;
 
 uniform float instance_rows;
 uniform float instance_rot_randomize = 2.5;
@@ -18,6 +15,7 @@ uniform float _coverage_altitude = 10.0;
 uniform float _coverage_range = 100.0;
 uniform float _slope_coverage = 0.5;
 uniform float clumping_strength : hint_range(0.0, 100.0) = 20.0;
+uniform float scale = 1.0;
 uniform mat3 terrain_normal_basis;
 
 uniform sampler2D funny;
@@ -36,9 +34,9 @@ float sdCircle( vec2 p, float r ) {
 }
 
 float get_height(vec2 pos) {
-	pos -= .5 * map_heightmap_size;
-	pos /= map_heightmap_size;
-	return terrain_amplitude * texture(map_heightmap, pos).r / 7.5 + terrain_offset.y;
+	pos -= .5 * map_heightmap_size * scale;
+	pos /= map_heightmap_size * scale;
+	return terrain_amplitude * scale * texture(map_heightmap, pos).r / 7.5 + terrain_offset.y * scale;
 }
 
 vec3 unpack_normalmap(vec3 rgb) {
@@ -54,8 +52,8 @@ vec3 get_normal(vec2 pos) {
 }
 
 float get_clumps(vec2 pos) {
-	pos -= 0.5 * map_heightmap_size;
-	pos /= map_heightmap_size;	
+	pos -= 0.5 * map_heightmap_size * scale;
+	pos /= map_heightmap_size * scale;
 	return 100.0 * texture(map_clumpmap, pos).r;
 }
 
@@ -101,7 +99,7 @@ void start() {
 
 	const float slope_distance_check = 0.1;
 	
-	vec2 offset = terrain_offset.xz;
+	vec2 offset = terrain_offset.xz * scale;
 
 	// apply height
 	pos.y = get_height(pos.xz + offset);
@@ -112,7 +110,7 @@ void start() {
 	float yzp = get_height(pos.xz + vec2(0.0, slope_distance_check) + offset);
 	float yzm = get_height(pos.xz + vec2(0.0, -slope_distance_check) + offset);
     
-	if (abs(pos.y) < min_spawn_level) {
+	if (abs(pos.y) < min_spawn_level * scale) {
 		pos.y = -10000.0;
 	}
 	
@@ -172,4 +170,4 @@ void start() {
 	TRANSFORM[1][1] =  base_scale.y;
 	TRANSFORM[2][2]  = base_scale.z;
 
-}	"
+}	

@@ -27,6 +27,7 @@ func _ready() -> void:
 		items.append(null)
 	
 	items[0] = ItemStack.new(ItemStack.ItemType.Pickaxe)
+	items[1] = ItemStack.new(ItemStack.ItemType.Axe)
 	
 	for i in range(inv_size):
 		var ui_item = _get_ui_item(i)

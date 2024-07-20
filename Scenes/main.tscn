@@ -110,6 +110,7 @@ skeleton = NodePath("../../..")
 shape = SubResource("BoxShape3D_s3gtb")
 
 [node name="Rockspawner" type="Node3D" parent="Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 144.513, 0)
 script = ExtResource("4_ye4sx")
 
 [node name="Rock" parent="Blocks/Rockspawner" instance=ExtResource("4_6j0fb")]

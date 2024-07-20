@@ -22,6 +22,13 @@ func _physics_process(delta):
 			body.damage_player(self, 1.0)
 
 func damage(damager: Variant, damage_amount: float):
+	if !damager is Player:
+		return
+	
+	if damager.inventory.get_held_item() == null \
+			|| damager.inventory.get_held_item().type != ItemStack.ItemType.Pickaxe:
+		return
+	
 	if invulnerable:
 		return
 	

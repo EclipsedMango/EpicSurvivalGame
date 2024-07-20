@@ -1,13 +1,19 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bsk3pi23nr1kw"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsk3pi23nr1kw"]
 
-[ext_resource type="Shader" uid="uid://cg217cn2jstv3" path="res://Shaders/Tree.tres" id="1_g7ubb"]
-[ext_resource type="Texture2D" uid="uid://dwu0xfgmv4vrk" path="res://Assets/Art/Textures/Tree3FIXED_Leaves Texture - Imgur.png" id="2_g2n4j"]
+[ext_resource type="Shader" path="res://Shaders/NewTree.gdshader" id="1_iocbs"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_g7ubb")
-shader_parameter/ColorParameter = Color(0.365967, 0.846367, 0.526893, 1)
-shader_parameter/ColorParameter2 = Color(0.860699, 0.916953, 0.826203, 1)
-shader_parameter/ColorParameter3 = Color(1, 1, 1, 1)
-shader_parameter/Texture2DParameter = ExtResource("2_g2n4j")
-shader_parameter/Texture2DParameter2 = ExtResource("2_g2n4j")
+shader = ExtResource("1_iocbs")
+shader_parameter/albedo = null
+shader_parameter/albedo2 = null
+shader_parameter/albedo3 = null
+shader_parameter/value = 0.1
+shader_parameter/SubSurfDistortion = 1.0
+shader_parameter/SubSurfTint = null
+shader_parameter/SubSurfBrightness = 3.0
+shader_parameter/SubSurfCutoff = 0.5
+shader_parameter/SubSurfSmoothness = 0.05
+shader_parameter/ToonRampOffset = 0.5
+shader_parameter/ToonRampSmoothness = 0.05
+shader_parameter/ToonRampTinting = null

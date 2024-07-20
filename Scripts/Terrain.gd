@@ -1,7 +1,7 @@
 @tool
 extends MeshInstance3D 
 
-@onready var collision_shape_3d: CollisionShape3D = $"../CollisionShape3D"
+@onready var collision: CollisionShape3D = $"../CollisionShape3D"
 @onready var grass_origin: Node3D = $"../../GrassOrigin"
 
 @export var gradient: Gradient
@@ -25,6 +25,8 @@ func _ready() -> void:
  
 	var heightmap_data := PackedFloat32Array()
 	heightmap_data.resize(256 * 256)
+	var heightmap_collision_data := PackedFloat32Array()
+	heightmap_collision_data.resize(256 * 256)
 
 	print("Generating Floor...")
 	var surface_tool := SurfaceTool.new()
@@ -48,6 +50,7 @@ func _ready() -> void:
 			surface_tool.add_vertex(pos1)
 
 			heightmap_data[x + y * 256] = pos0.y * 7.5
+			heightmap_collision_data[x + y * 256] = pos0.y * 256.0
 
 	print("Finishing Mesh Generation")
 	surface_tool.index()
@@ -56,9 +59,10 @@ func _ready() -> void:
 	mesh = surface_tool.commit()
  
 	print("Creating Collision")
-	collision_shape_3d.shape = ConcavePolygonShape3D.new()
-	collision_shape_3d.shape.set_faces(mesh.get_faces())
-	collision_shape_3d.scale = Vector3.ONE
+	collision.scale = Vector3.ONE * 1.0 / 256.0
+	collision.position.x = -0.5 / 256.0
+	collision.position.z = -0.5 / 256.0
+	collision.shape.map_data = heightmap_collision_data
  
 	var heightmap := Image.create_from_data(256, 256, false, Image.FORMAT_RF, heightmap_data.to_byte_array())
 	var itex := ImageTexture.create_from_image(heightmap)

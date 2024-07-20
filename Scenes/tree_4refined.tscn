@@ -1,19 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://b53sfhvbis2p0"]
+[gd_scene load_steps=12 format=3 uid="uid://b53sfhvbis2p0"]
 
 [ext_resource type="PackedScene" uid="uid://bd4tha2wonf0w" path="res://Assets/Models/Tree4REFINED.glb" id="1_c5sbk"]
-[ext_resource type="Shader" uid="uid://cg217cn2jstv3" path="res://Shaders/Tree.tres" id="2_it3fy"]
-[ext_resource type="Texture2D" uid="uid://dwu0xfgmv4vrk" path="res://Assets/Art/Textures/Tree3FIXED_Leaves Texture - Imgur.png" id="3_cdpen"]
+[ext_resource type="Shader" path="res://Shaders/NewTree.gdshader" id="3_dmaqx"]
+[ext_resource type="Texture2D" uid="uid://bgt2ajq0jc2xo" path="res://Assets/Art/Textures/Tree4REFINED_Tree3FIXED_Leaves Texture - Imgur.png" id="4_omj8u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lups3"]
 resource_name = "Material.006"
 cull_mode = 2
 albedo_color = Color(0.352264, 0.228671, 0.121301, 1)
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_1nf77"]
-frequency = 0.0095
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tulif"]
+frequency = 0.0015
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_om6o2"]
-noise = SubResource("FastNoiseLite_1nf77")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qqsys"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_tulif")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_5b14a"]
 fractal_type = 0
@@ -22,15 +24,32 @@ fractal_type = 0
 seamless = true
 noise = SubResource("FastNoiseLite_5b14a")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hj026"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2dp8t"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_hj026")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1kcxc"]
 render_priority = 0
-shader = ExtResource("2_it3fy")
-shader_parameter/ColorParameter = Color(0, 0.450187, 0.352178, 1)
-shader_parameter/ColorParameter2 = Color(0.331337, 0.468672, 0.339159, 1)
-shader_parameter/ColorParameter3 = Color(0.400436, 0.483873, 0.100507, 1)
+shader = ExtResource("3_dmaqx")
+shader_parameter/albedo = Color(0, 0.303488, 0.00574845, 1)
+shader_parameter/albedo2 = Color(0.12496, 0.220096, 0.0876433, 1)
+shader_parameter/albedo3 = Color(0.4124, 0.562491, 0.289894, 1)
+shader_parameter/value = 0.1
+shader_parameter/SubSurfDistortion = 0.582
+shader_parameter/SubSurfTint = Color(0.355314, 0.355314, 0.355314, 1)
+shader_parameter/SubSurfBrightness = 4.239
+shader_parameter/SubSurfCutoff = 0.0
+shader_parameter/SubSurfSmoothness = 0.88
+shader_parameter/ToonRampOffset = 1.0
+shader_parameter/ToonRampSmoothness = 1.0
+shader_parameter/ToonRampTinting = Color(0.164371, 0.367137, 0.239754, 1)
+shader_parameter/leaves = ExtResource("4_omj8u")
 shader_parameter/WindNoise = SubResource("NoiseTexture2D_8m5id")
-shader_parameter/Texture2DParameter = ExtResource("3_cdpen")
-shader_parameter/Texture2DParameter2 = SubResource("NoiseTexture2D_om6o2")
+shader_parameter/thing = SubResource("NoiseTexture2D_2dp8t")
+shader_parameter/SubSurfTexture = SubResource("NoiseTexture2D_qqsys")
 
 [node name="Tree4REFINED" instance=ExtResource("1_c5sbk")]
 

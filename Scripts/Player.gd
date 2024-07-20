@@ -12,6 +12,7 @@ const INVULNERABLE_TIMER: float = 0.15
 var jumps: int = 0
 var health: float = 20.0
 var invulnerable: bool = false
+var stamina: float = 10.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -34,6 +35,18 @@ func _ready() -> void:
 	respawn_menu.visible = false
 	inventory.visible = true
 	inventory.set_opened(false)
+	
+	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	
+	var ray_length = 450.0
+	var origin: Vector3 = global_position
+	var end: Vector3 = origin + Vector3(0, -ray_length, 0)
+	var query := PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+	var result: Dictionary = space_state.intersect_ray(query)
+	
+	if result.has("collider"):
+		position.y = result.position.y + 5.0
 
 
 func _physics_process(delta) -> void:
@@ -45,16 +58,26 @@ func _physics_process(delta) -> void:
 	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	var in_water: bool = position.y < 10.8 * 4;
+
+	if in_water:
+		velocity.y += 8.0 * delta
+		# Add the gravity.
+	elif not is_on_floor():
+		if in_water:
+			velocity.y -= gravity / 4.0 * delta
+		else:
+			velocity.y -= gravity * delta
 	else: 
 		jumps = 0
 
 	# Handle jump.
 	if is_just_pressed("jump") and jumps < JUMP_LIMIT:
 		jumps += 1;
-		velocity.y = JUMP_VELOCITY
+		if in_water:
+			velocity.y = JUMP_VELOCITY * 0.5
+		else:
+			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -72,7 +95,17 @@ func _physics_process(delta) -> void:
 	
 	# Running/Sprinting.
 	if fast:
-		direction *= 20.0
+		stamina -= delta * 2.0
+		if stamina <= 0.0:
+			direction *= 1.0
+			stamina = 0.0
+		else:
+			direction *= 20.0
+	
+	if stamina < 10.0 && !fast:
+		stamina += delta
+	elif stamina == 10.0:
+		stamina = stamina
 	
 	# vec2 velocity and direction.
 	var vel := Vector2(velocity.x, velocity.z)
@@ -99,7 +132,7 @@ func _physics_process(delta) -> void:
 	velocity.x = vel.x
 	velocity.z = vel.y
 
-	health_label.text = str("Speed: ", vel.length(), "\nVel: ", velocity, "\nHealth: ", health, "\nHeight: ", global_position.y)
+	health_label.text = str("Speed: ", vel.length(), "\nVel: ", velocity, "\nHealth: ", health, "\nPos: ", global_position, "\nStamina: ", stamina)
 
 	if is_just_pressed("attack"):
 		var origin: Vector3 = head.global_position
@@ -108,9 +141,7 @@ func _physics_process(delta) -> void:
 		query.collide_with_areas = false
 		var result: Dictionary = space_state.intersect_ray(query)
 		
-		if result.has("collider") && result.collider.has_method("damage") \
-				&& inventory.get_held_item() != null \
-				&& inventory.get_held_item().type == ItemStack.ItemType.Pickaxe:
+		if result.has("collider") && result.collider.has_method("damage"):
 			result.collider.damage(self, 1.0)
 
 	# Kill the player in water.

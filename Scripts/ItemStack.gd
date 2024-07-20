@@ -34,5 +34,5 @@ static var type_icons: Array[Texture2D] = [
 	preload("res://Assets/Art/Textures/logICON.png"),
 	preload("res://icon.svg"),
 	preload("res://Assets/Art/Textures/pickaxeICONdownSIZED.png"),
-	preload("res://icon.svg"),
+	preload("res://Assets/Art/Textures/AxeICON.png"),
 ]
