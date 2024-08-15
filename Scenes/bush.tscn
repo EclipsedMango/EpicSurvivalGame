@@ -13,6 +13,7 @@ visibility_range_begin = 17.5
 visibility_range_begin_margin = 2.5
 visibility_range_fade_mode = 1
 billboard = 2
+shaded = true
 alpha_cut = 2
 texture = ExtResource("1_6meqw")
 

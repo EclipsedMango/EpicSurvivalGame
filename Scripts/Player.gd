@@ -38,6 +38,8 @@ func _ready() -> void:
 	
 	var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
 	
+	position.y += 250.0
+	
 	var ray_length = 450.0
 	var origin: Vector3 = global_position
 	var end: Vector3 = origin + Vector3(0, -ray_length, 0)
@@ -46,7 +48,7 @@ func _ready() -> void:
 	var result: Dictionary = space_state.intersect_ray(query)
 	
 	if result.has("collider"):
-		position.y = result.position.y + 5.0
+		position.y = result.position.y + 1.0
 
 
 func _physics_process(delta) -> void:

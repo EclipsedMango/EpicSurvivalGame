@@ -38,10 +38,11 @@ fog_light_energy = 1.85
 fog_density = 0.001
 fog_sky_affect = 0.308
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0018
-volumetric_fog_albedo = Color(0.206077, 0.375678, 0.460733, 1)
+volumetric_fog_density = 0.0241
+volumetric_fog_albedo = Color(0.200772, 0.0264707, 0.266969, 1)
 volumetric_fog_emission = Color(0.648226, 0.795134, 0.849093, 1)
-volumetric_fog_detail_spread = 5.2233
+volumetric_fog_length = 639.99
+volumetric_fog_detail_spread = 6.0
 volumetric_fog_sky_affect = 0.212
 volumetric_fog_temporal_reprojection_enabled = false
 
@@ -115,9 +116,12 @@ script = ExtResource("4_ye4sx")
 
 [node name="Rock" parent="Blocks/Rockspawner" instance=ExtResource("4_6j0fb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.56269, 6.43175)
+visible = false
 
 [node name="Tree" parent="Blocks/Rockspawner" instance=ExtResource("6_fdd5e")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.43469, 3.13902, 0.095138)
+visible = false
 
 [node name="Bush" parent="Blocks/Rockspawner" instance=ExtResource("7_8bi2c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17888, 2.95198, 0)
+visible = false

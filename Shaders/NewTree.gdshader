@@ -9,7 +9,7 @@ uniform sampler2D leaves;
 uniform sampler2D WindNoise;
 uniform sampler2D thing;
 
-uniform float value = 0.1;
+uniform float panningScale = 0.1;
 
 uniform float SubSurfDistortion: hint_range(0.0, 5.0) = 1.0;
 uniform vec3 SubSurfTint: source_color;
@@ -30,59 +30,58 @@ vec2 panning(vec2 uv, vec2 scale, vec2 offset) {
 }
 
 void vertex() {
-	vec2 funny = NODE_POSITION_WORLD.xy + TIME;
-	vec2 hallo = panning(UV, vec2(value), funny);
-	vec4 happy = texture(WindNoise, hallo);
+	vec2 offset = NODE_POSITION_WORLD.xy + TIME;
+	vec2 objectPanning = panning(UV, vec2(panningScale), offset);
+	vec4 windPos = texture(WindNoise, objectPanning);
 	
-	float good = 1.0 - UV.y;
+	float windDir = 1.0 - UV.y;
 	
-	vec3 imRunningOutOfNames = (happy.xyz * good) * vec3(0.3, 0.1, 0.3);
+	vec3 wind = (windPos.xyz * windDir) * vec3(0.3, 0.1, 0.3);
 	
 	LocalPos = VERTEX;
 	
-	VERTEX = VERTEX + imRunningOutOfNames;
+	VERTEX = VERTEX + wind;
 	
-	vec3 idk = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	WorldPos = vec3(idk);
+	vec3 view = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+	WorldPos = vec3(view);
 }
 
 void fragment() {
-	float okay = LocalPos.y * -2.5;
-	okay = 1.0 - okay;
+	float colWeight = LocalPos.y * -2.5;
+	colWeight = 1.0 - colWeight;
 	
-	vec3 whatsGood = mix(vec3(albedo).xyz, vec3(albedo2).xyz, okay);
+	vec3 mixedCol = mix(albedo, albedo2, colWeight);
 	
-	vec4 WhySoManyNames = texture(leaves, UV);
-	ALPHA = WhySoManyNames.a;
+	vec4 leavesTex = texture(leaves, UV);
+	ALPHA = leavesTex.a;
 	
-	vec3 cool = whatsGood * WhySoManyNames.xyz;
+	vec3 col = mixedCol * leavesTex.xyz;
 	
-	vec2 krasue = LocalPos.yz * 0.0;
+	vec2 texSize = LocalPos.yz * 0.0;
 	
-	vec4 myFriend = texture(thing, krasue);
-	float good = 1.0 - UV.y;
+	vec4 myFriend = texture(thing, texSize);
 	
-	vec3 bye = myFriend.xyz * good;
-	vec3 friendly = albedo3 * bye;
+	vec3 colPos = myFriend.xyz * (1.0 - UV.y);
+	vec3 secCol = albedo3 * colPos;
 	
-	ALBEDO = mix(cool, friendly, 0.5);
+	ALBEDO = mix(col, secCol, 0.5);
 }
 
 void light() {
 	// Diffuse Shading
-	float d =  dot(WorldPos.xyz,LIGHT) * 0.5 + 0.5;
-	float toonRamp = smoothstep(ToonRampOffset, ToonRampOffset + ToonRampSmoothness, d);
+	float diffuseShading = dot(WorldPos.xyz, LIGHT) * 1.5;
+	float toonRamp = smoothstep(ToonRampOffset, ToonRampOffset + ToonRampSmoothness, diffuseShading);
 	
 	// Shadows
-	toonRamp *= ATTENUATION * 0.1;
+	toonRamp *= ATTENUATION * 1.5;
 	
 	vec3 toonRampOutput = LIGHT_COLOR * toonRamp;
 	vec3 ambientLightOutput = ALBEDO * ToonRampTinting;
 	DIFFUSE_LIGHT += clamp((toonRampOutput - ambientLightOutput), vec3(0.0), vec3(1.0));
 	
 
-	float subSurfBack = dot(VIEW, -(LIGHT + WorldPos.xyz * SubSurfDistortion));
-	float subSurfFront = dot(VIEW, LIGHT - WorldPos.xyz * SubSurfDistortion);
+	float subSurfBack = dot(VIEW, -(LIGHT - LocalPos.xyz * SubSurfDistortion));
+	float subSurfFront = dot(VIEW, LIGHT * LocalPos.xyz * SubSurfDistortion);
 	subSurfBack = max(subSurfBack, 0.0);
 	subSurfFront = max(subSurfFront, 0.0);
 	
