@@ -1,6 +1,6 @@
 extends Control
 
-@onready var inventory: Inventory = $"../.."
+@onready var inventory: Inventory = self.owner
 @onready var recipe_container: Control = %RecipeContainer
 
 var ui_recipe_res = preload("res://Scenes/ui_recipe.tscn")
