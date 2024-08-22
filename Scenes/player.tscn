@@ -26,6 +26,9 @@ shape = SubResource("CapsuleShape3D_3vo23")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
+[node name="Reach" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
+
 [node name="Camera3D" type="Camera3D" parent="Head"]
 cull_mask = 524287
 fov = 90.0
@@ -48,9 +51,6 @@ render_target_update_mode = 4
 [node name="Camera3D" parent="Head/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("3_bmjnk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -228.85, 0)
 cull_mask = 524288
-
-[node name="Reach" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 
 [node name="PlayerHealth" type="Label" parent="."]
 anchors_preset = 2

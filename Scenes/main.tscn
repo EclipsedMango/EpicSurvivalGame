@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbkvn3mh5ff31"]
+[gd_scene load_steps=17 format=3 uid="uid://dbkvn3mh5ff31"]
 
 [ext_resource type="PackedScene" uid="uid://bac2dijaowhfv" path="res://Scenes/Terrain.tscn" id="1_at8y6"]
 [ext_resource type="PackedScene" uid="uid://bbuymm13kjypt" path="res://Scenes/player.tscn" id="2_voc7m"]
+[ext_resource type="Shader" path="res://Shaders/ToonOutline.gdshader" id="3_k1mjf"]
 [ext_resource type="PackedScene" uid="uid://brq1rqhw4t21k" path="res://Scenes/rock.tscn" id="4_6j0fb"]
 [ext_resource type="Script" path="res://Scripts/Rockspawner.gd" id="4_ye4sx"]
 [ext_resource type="Script" path="res://Scripts/FPS.gd" id="5_ro4ot"]
@@ -32,12 +33,10 @@ ssao_intensity = 3.11
 ssao_power = 2.12131
 ssao_detail = 1.27
 ssao_horizon = 0.12
-fog_enabled = true
 fog_light_color = Color(0.458693, 0.603351, 0.662605, 1)
 fog_light_energy = 1.85
 fog_density = 0.001
 fog_sky_affect = 0.308
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.0241
 volumetric_fog_albedo = Color(0.200772, 0.0264707, 0.266969, 1)
 volumetric_fog_emission = Color(0.648226, 0.795134, 0.849093, 1)
@@ -50,6 +49,22 @@ volumetric_fog_temporal_reprojection_enabled = false
 dof_blur_far_distance = 326.59
 dof_blur_near_distance = 0.01
 dof_blur_amount = 0.02
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsagu"]
+render_priority = 0
+shader = ExtResource("3_k1mjf")
+shader_parameter/depth_threshold = 0.359
+shader_parameter/reverse_depth_threshold = 0.25
+shader_parameter/normal_threshold = 0.6
+shader_parameter/darken_amount = 0.44
+shader_parameter/lighten_amount = 1.5
+shader_parameter/normal_edge_bias = Vector3(1, 1, 1)
+shader_parameter/light_direction = Vector3(-0.96, -0.18, 0.2)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jl74b"]
+material = SubResource("ShaderMaterial_nsagu")
+flip_faces = true
+size = Vector2(2, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2cujy"]
 
@@ -66,6 +81,23 @@ camera_attributes = SubResource("CameraAttributesPractical_ah7ol")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.554016, 0.832506, 0, -0.832506, -0.554016, 0, 20.282, -68.5258)
 shadow_enabled = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_jl74b")
 
 [node name="PlayerRelated" type="Node3D" parent="."]
 
